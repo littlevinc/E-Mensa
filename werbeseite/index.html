@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--
+- Praktikum DBWT. Autoren:
+- Luke, Braun, 3551708
+- Kai , Fedin, 3541708
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>E-Mensa</title>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><img src="mensa-logo.png" alt="E-Mensa Logo" width="100px"></div>
+  <div>
+    <ul>
+      <li><a href="#ankuendigungen">Ankündigung</a></li>
+      <li><a href="#speisen">Speisen</a></li>
+      <li><a href="#zahlen">Zahlen</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="#wichtig">Wichtig für uns</a></li>
+    </ul>
+  </div>
+
+</nav>
+<div>
+
+  <section>
+    <h2 id="ankuendigungen">Bald gibt es Essen auch online!</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad atque cum, cumque deserunt distinctio dolorem ex quis,
+      quod saepe tempore temporibus vitae? Beatae esse est placeat quaerat ullam vel, voluptatum? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aperiam architecto assumenda aut cupiditate ex exercitationem fugit laborum maxime modi non omnis qui rerum sint sit ullam velit, vitae voluptatum.</p>
+  </section>
+
+  <section>
+    <h2 id="speisen">Köstlichkeiten, die Sie erwarten</h2>
+    <table>
+      <tr>
+        <th></th>
+        <th>Preis intern</th>
+        <th>Preis extern</th>
+      </tr>
+      <tr>
+        <td>Rindfleich mit Bambus, Kaiserschoten und rotem Paprika, dazu Mie Nudeln</td>
+        <td>2,60</td>
+        <td>3,20</td>
+      </tr>
+      <tr>
+        <td>Spinatrisotto mit kleinen Samosateigecken und gemischter Salat</td>
+        <td>2,20</td>
+        <td>3,00</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2 id="zahlen">E-Mensa im Zahlen</h2>
+    <div>X Besuche</div>
+    <div>Y Anmeldungen zum Newsletter</div>
+    <div>Z Speisen</div>
+  </section>
+
+  <section>
+    <h2 id="kontakt" >Interesse geweckt? Wir informieren Sie!</h2>
+    <form action="newsletter.php" method="post"></form>
+    <fieldset>
+      <label for="name">Ihr Name:</label>
+      <input type="text" id="name" name="user" placeholder="Name">
+      <label for="mail">Ihre E-Mail:</label>
+      <input type="email" id="mail" name="mail" placeholder="E-Mail">
+      <label for="lang">Newsletter bitte in:</label>
+      <select name="lang" id="lang">
+        <option value="de">Deutsch</option>
+        <option value="eng">English</option>
+      </select>
+      <input type="checkbox" id="dsgvo" required>
+      <label for="dsgvo">Hiermite stimme ich den Datenschutzbestimmungen zu</label>
+      <input type="submit" value="Zum Newsletter anmelden">
+    </fieldset>
+  </section>
+
+
+  <section>
+    <h2 id="wichtig">Das ist uns wichtig</h2>
+    <table id="mensa-icons">
+      <th>
+        <tr>
+          <td><img src="food.png" alt="food bag" width="80px"></td>
+          <td><img src="dish.png" alt="dish" width="80px"></td>
+          <td><img src="household.png" alt="cleaning stufff" width="80px"></td>
+        </tr>
+      </th>
+
+      <tr>
+        <td>Beste frische Zutaten</td>
+        <td>Ausgewogenen abwechslungsreiche Gerichte</td>
+        <td>Sauberkeit</td>
+      </tr>
+    </table>
+  </section>
+
+
+  <h3>Wir freuen uns auf Ihren Besuch</h3>
+
+
+</div>
+
+
+
+<footer>
+  <ul>
+    <li>(c) E-Mensa GmbH</li>
+    <li>Luke & Kai</li>
+    <li><a href="/impressum.html">Impressum</a></li>
+  </ul>
+
+</footer>
+
+</body>
+</html>

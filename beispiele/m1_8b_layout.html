@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+ - Praktikum DBWT. Autoren:
+ - Kai, Fedin, 3515541
+ - Luke, Braun, 3541708
+ -->
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout Grid</title>
+    <style>
+      #grid-container-1 {
+        display: grid;
+        gap: 10px;
+      }
+      #grid-container-2 {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        gap: 30px;
+      }
+      #grid-container-3 {
+        display: grid;
+        justify-content: center;
+      }
+      #field {
+        background-color: aqua;
+        border: 1px solid grey;
+      }
+      #field-centered {
+        background-color: aqua;
+        border: 1px solid grey;
+        display: grid;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>GRID CONTAINTER</h2>
+    <h3>3 Elemente untereinander</h3>
+    <div id="grid-container-1">
+      <div id="field">1</div>
+      <div id="field">2</div>
+      <div id="field">3</div>
+    </div>
+    <h3>3 Elemente nebeneinander</h3>
+    <div id="grid-container-2">
+      <div id="field">1</div>
+      <div id="field-centered">2</div>
+      <div id="field">3</div>
+    </div>
+    <h3>1 Element zentriert</h3>
+    <div id="grid-container-3">
+      <div id="field">1</div>
+    </div>
+  </body>
+</html>
