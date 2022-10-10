@@ -9,6 +9,7 @@ h1, h2, h3, h4, h5, h6{
     text-align: center;
     margin-top: 50px;
     margin-bottom: 0px;
+    text-transform: uppercase;
 }
 
 section{
@@ -23,16 +24,6 @@ p{
 
 a{
     color:black
-}
-
-#mensa-icons {
-    align-content: center;
-    text-align: center;
-}
-
-#mensa-icons td {
-    padding: 10px;
-    width: 400px;
 }
 
 .col-3 {
@@ -55,6 +46,25 @@ a{
 .usp-subtext{
     margin-top: 5px;
     font-size: 18px;
+}
+
+.usp-about{
+    font-family: Helvetica;
+    font-size: 15px;
+    margin-bottom: 0px;
+    color: black;
+    margin-top: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 fieldset{
@@ -92,7 +102,6 @@ select{
 }
 
 
-
 #dsgvo{
     width: inherit;
     accent-color: grey;
@@ -103,6 +112,7 @@ select{
 
 #greetings{
     margin-top: 40px;
+    margin-bottom: 30px;
 }
 
 .logo{
@@ -153,5 +163,20 @@ footer li{
 }
 footer li:first-child{
     border-left: none;
+}
+
+[value="Zum Newsletter anmelden"] {
+    background-color: #161616;
+    color: white;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+
+}
+
+[value="Zum Newsletter anmelden"]:hover {
+    background-color: white;
+    color: black;
 }
 
