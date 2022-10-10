@@ -100,6 +100,10 @@ input{
     font-size: 16px;
 }
 
+input:hover, select:hover {
+    border-bottom: #161616 solid 1px;
+}
+
 input::placeholder{
     font-size: 16px;
 }
@@ -148,8 +152,9 @@ select{
 }
 nav{
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 25% 45% 30%;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 nav li{
@@ -197,3 +202,42 @@ footer li:first-child{
     color: black;
 }
 
+.flex-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+tr:first-child {
+    text-align: left;
+}
+
+tr:hover {
+    background-color: #ededed;
+}
+
+.flex-table tr {
+    border-bottom: 1px solid darkgray;
+}
+.flex-table th {
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    border: 0px    ;
+    color: white;
+    background-color: #161616;
+}
+
+.flex-table td:first-child {
+    text-align: left;
+    padding: 10px 10px 10px 10px;
+}
+
+[type="submit"]:hover {
+    border-bottom: inherit;
+}
+
+#custom_width {
+    width: 65%;
+}
