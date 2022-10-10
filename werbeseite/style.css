@@ -3,17 +3,18 @@
     font-weight: bolder;
 }
 
-
 h1, h2, h3, h4, h5, h6{
     font-family: "Helvetica";
     font-weight: 500;
     text-align: center;
+    margin-top: 50px;
+    margin-bottom: 0px;
 }
 
 section{
     display: grid;
     justify-content: center;
-    margin: 30px 25% 30px 25%;
+    margin: 30px 25% 0px 25%;
 }
 
 p{
@@ -34,20 +35,99 @@ a{
     width: 400px;
 }
 
+.col-3 {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    gap: 10px;
+}
+.col-3  p{
+    text-align: center;
+}
+
+.usp-num{
+    font-family: Helvetica;
+    font-size: 56px;
+    margin-bottom: 0px;
+    color: rgb(136, 183, 181);
+    margin-top: 5px;
+}
+
+.usp-subtext{
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+fieldset{
+    border: none;
+}
+
+.formfield{
+    margin-bottom: 30px;
+}
+
+input{
+    border: none;
+    border-bottom: lightgrey solid 1px;
+    width: 100%;
+    padding-bottom: 5px;
+    font-size: 16px;
+}
+
+input::placeholder{
+    font-size: 16px;
+}
+
+
+input:focus, select:focus{
+    outline: none;
+}
+
+select{
+    border: none;
+    font-size: 16px;
+    color: grey;
+    border-bottom: lightgrey solid 1px;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+
+
+#dsgvo{
+    width: inherit;
+    accent-color: grey;
+    background-color: red;
+    border: 3px solid grey;
+}
+
+
+#greetings{
+    margin-top: 40px;
+}
+
 .logo{
     margin-left: 25px;
     margin-top: 8px;
 }
+.logo-text{
+    margin-left: 40px;
+    display:flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    justify-content: center;
+    font-family: Helvetica;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
 nav{
-
     display: grid;
     grid-template-columns: 25% 75%;
-
+    margin-bottom: 20px;
 }
-
 nav li{
     display:inline;
-    margin-left:20px;
+    margin-left:40px;
 }
 nav a{
     text-decoration: none;
@@ -57,17 +137,20 @@ nav a:hover{
     text-decoration: underline;
 }
 
+header>img{
+    margin-left: 25%;
+}
 footer{
+    border-top: 1px solid lightgrey;
+    padding: 5px 0px 10px 0px;
     display:grid;
     justify-content: center;
 }
-
 footer li{
     display:inline;
     padding: 0 12px 0 10px;
     border-left: black solid 1px;
 }
-
 footer li:first-child{
     border-left: none;
 }

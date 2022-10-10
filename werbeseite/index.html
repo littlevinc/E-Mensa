@@ -13,7 +13,10 @@
 <body>
 
 <nav>
+  <!--
   <div class="logo"><img src="mensa-logo.png" alt="E-Mensa Logo" width="100px"></div>
+  -->
+  <div class="logo-text">E Mensa</div>
   <div>
     <ul>
       <li><a href="#ankuendigungen">Ankündigung</a></li>
@@ -23,18 +26,20 @@
       <li><a href="#wichtig">Wichtig für uns</a></li>
     </ul>
   </div>
-
 </nav>
+<header>
+  <img src="homepage-header.webp" alt="homepage header mensa" width="50%">
+</header>
 <div>
 
+  <h2 id="ankuendigungen">Bald gibt es Essen auch online!</h2>
   <section>
-    <h2 id="ankuendigungen">Bald gibt es Essen auch online!</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad atque cum, cumque deserunt distinctio dolorem ex quis,
       quod saepe tempore temporibus vitae? Beatae esse est placeat quaerat ullam vel, voluptatum? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aperiam architecto assumenda aut cupiditate ex exercitationem fugit laborum maxime modi non omnis qui rerum sint sit ullam velit, vitae voluptatum.</p>
   </section>
 
+  <h2 id="speisen">Köstlichkeiten, die Sie erwarten</h2>
   <section>
-    <h2 id="speisen">Köstlichkeiten, die Sie erwarten</h2>
     <table>
       <tr>
         <th></th>
@@ -54,35 +59,50 @@
     </table>
   </section>
 
-  <section>
-    <h2 id="zahlen">E-Mensa im Zahlen</h2>
-    <div>X Besuche</div>
-    <div>Y Anmeldungen zum Newsletter</div>
-    <div>Z Speisen</div>
+  <h2 id="zahlen">E-Mensa im Zahlen</h2>
+  <section class="col-3">
+    <div>
+      <p class="usp-num">X</p>
+      <p class="usp-subtext">Besuche</p>
+    </div>
+    <div>
+      <p class="usp-num">Y</p>
+      <p class="usp-subtext">Anmeldungen zum Newsletter</p>
+    </div>
+    <div>
+      <p class="usp-num">Z</p>
+      <p class="usp-subtext">Speisen</p>
+    </div>
   </section>
 
+
+  <h2 id="kontakt" >Interesse geweckt? Wir informieren Sie!</h2>
   <section>
-    <h2 id="kontakt" >Interesse geweckt? Wir informieren Sie!</h2>
     <form action="newsletter.php" method="post"></form>
     <fieldset>
-      <label for="name">Ihr Name:</label>
-      <input type="text" id="name" name="user" placeholder="Name">
-      <label for="mail">Ihre E-Mail:</label>
-      <input type="email" id="mail" name="mail" placeholder="E-Mail">
-      <label for="lang">Newsletter bitte in:</label>
-      <select name="lang" id="lang">
-        <option value="de">Deutsch</option>
-        <option value="eng">English</option>
-      </select>
-      <input type="checkbox" id="dsgvo" required>
-      <label for="dsgvo">Hiermite stimme ich den Datenschutzbestimmungen zu</label>
+      <div class="formfield">
+        <input type="text" id="name" name="user" placeholder="Name">
+      </div>
+      <div class="formfield">
+        <input type="email" id="mail" name="mail" placeholder="E-Mail">
+      </div>
+      <div class="formfield">
+        <select name="lang" id="lang">
+          <option value="" selected disabled required>Language</option>
+          <option value="de">Deutsch</option>
+          <option value="eng">English</option>
+        </select>
+      </div>
+        <div class="formfield">
+        <input type="checkbox" id="dsgvo" required>
+        <label for="dsgvo">Hiermit stimme ich den Datenschutzbestimmungen zu</label>
+      </div>
       <input type="submit" value="Zum Newsletter anmelden">
     </fieldset>
   </section>
 
-
+  <h2 id="wichtig">Das ist uns wichtig</h2>
   <section>
-    <h2 id="wichtig">Das ist uns wichtig</h2>
     <table id="mensa-icons">
       <th>
         <tr>
@@ -93,15 +113,15 @@
       </th>
 
       <tr>
-        <td>Beste frische Zutaten</td>
-        <td>Ausgewogenen abwechslungsreiche Gerichte</td>
-        <td>Sauberkeit</td>
+        <td class="usp-subtext">Beste frische Zutaten</td>
+        <td class="usp-subtext">Ausgewogenen abwechslungsreiche Gerichte</td>
+        <td class="usp-subtext">Sauberkeit</td>
       </tr>
     </table>
   </section>
 
 
-  <h3>Wir freuen uns auf Ihren Besuch</h3>
+  <h3 id="greetings">Wir freuen uns auf Ihren Besuch</h3>
 
 
 </div>
