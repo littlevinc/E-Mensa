@@ -70,6 +70,10 @@ $ratings = [
         'stars' => 3 ]
 ];
 
+if (empty($_GET[GET_PARAM_SEARCH_TEXT])){
+    echo "empty text";
+}
+
 $showRatings = [];
 if (!empty($_GET[GET_PARAM_SEARCH_TEXT])) {
     $searchTerm = $_GET[GET_PARAM_SEARCH_TEXT];
@@ -170,10 +174,10 @@ function showPrice( $price): string{
     <a href="?sprache=eng" >English</a>
     <a href="?sprache=de" >Deutsch</a>
         <h1><?php echo $langArr['Gericht'] . ": " . $meal['name']; ?></h1>
-        <p><?php if(empty($_GET[GET_PARAM_SHOW_DES]) ||
-                $_GET[GET_PARAM_SHOW_DES] != "0"){echo "{$meal['description']} <br>";} ?>:</p>
-
-    <p>Preis Intern:<?php echo showPrice($meal['price_intern'])  ?> Preis extern:<?php showPrice($meal['price_extern'])  ?> </p>
+        <p><?php if(!isset($_GET[GET_PARAM_SHOW_DES]) || $_GET[GET_PARAM_SHOW_DES] != "0" ){
+                echo "{$meal['description']} <br>";}
+             ?></p>
+    <p>Preis Intern: <?php echo showPrice($meal['price_intern'])  ?> Preis extern: <?php echo showPrice($meal['price_extern'])  ?> </p>
     <p>Allergene:</p>
         <ul>
             <?php
