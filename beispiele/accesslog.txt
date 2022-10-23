@@ -1,0 +1,12 @@
+Datum: 23.10.2022 Uhrzeit: 16:42:11 IP: 127.0.0.1
+Browser: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36
+
+Datum: 23.10.2022 Uhrzeit: 16:42:11 IP: 127.0.0.1
+Browser: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36
+
+Datum: 23.10.2022 Uhrzeit: 16:42:15 IP: 127.0.0.1
+Browser: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36
+
+Datum: 23.10.2022 Uhrzeit: 16:42:15 IP: 127.0.0.1
+Browser: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36
+
