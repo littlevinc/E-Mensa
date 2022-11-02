@@ -1,3 +1,15 @@
+<?php
+/**
+ * Praktikum DBWT. Autoren:
+ * Luke, Braun, 3551708
+ * Kai , Fedin, 3515541
+ */
+
+include ("meals.php");
+
+?>
+
+
 <!DOCTYPE html>
 <!--
 - Praktikum DBWT. Autoren:
@@ -7,7 +19,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        <?php  include ("style.css"); ?>
+    </style>
     <link rel="stylesheet" href="https://use.typekit.net/qxh4wpt.css">
     <title>E-Mensa</title>
 </head>
@@ -15,7 +29,7 @@
 
 <nav>
   <!--
-  <div class="logo"><img src="mensa-logo.png" alt="E-Mensa Logo" width="100px"></div>
+  <div class="logo"><img src="pictures/mensa-logo.png" alt="E-Mensa Logo" width="100px"></div>
   -->
   <div class="logo-text">E Mensa</div>
     <ul>
@@ -30,7 +44,7 @@
   </div>
 </nav>
 <header>
-  <img src="homepage-header.webp" alt="homepage header mensa" width = "50%">
+  <img src="img/homepage-header.webp" alt="homepage header mensa" width = "50%">
 </header>
 <div>
 
@@ -47,17 +61,16 @@
         <th>Gericht</th>
         <th>Interne</th>
         <th>Externe</th>
+        <th>Bild</th>
       </tr>
-      <tr>
-        <td>Rindfleich mit Bambus, Kaiserschoten und rotem Paprika, dazu Mie Nudeln</td>
-        <td>2,60€</td>
-        <td>3,20€</td>
-      </tr>
-      <tr>
-        <td>Spinatrisotto mit kleinen Samosateigecken und gemischter Salat</td>
-        <td>2,20€</td>
-        <td>3,00€</td>
-      </tr>
+        <?php
+        foreach($meals as $meal) echo "<tr>
+                    <td>{$meal['name']}</td>
+                    <td>" . showPrice($meal['price_intern']) . "</td>
+                    <td> " . showPrice($meal['price_extern']) . "</td>
+                    <!--<td><img src='{$meal['img']}'></td>-->
+                  </tr>";
+        ?>
     </table>
   </section>
 
@@ -80,40 +93,21 @@
 
   <h2 id="kontakt" >Interesse geweckt, Wir informieren Sie</h2>
   <section>
-    <form action="newsletter.php" method="post"></form>
-    <fieldset>
-      <div class="formfield">
-        <input type="text" id="name" name="user" placeholder="Name">
-      </div>
-      <div class="formfield">
-        <input type="email" id="mail" name="mail" placeholder="E-Mail">
-      </div>
-      <div class="formfield">
-        <select name="lang" id="lang">
-          <option value="de">Deutsch</option>
-          <option value="eng">English</option>
-        </select>
-      </div>
-        <div class="formfield">
-        <input type="checkbox" id="dsgvo" required>
-        <label for="dsgvo">Hiermit stimme ich den Datenschutzbestimmungen zu</label>
-      </div>
-      <input class="custom-button" type="submit" value="Zum Newsletter anmelden">
-    </fieldset>
+    <?php include ("newsletter.php");?>
   </section>
 
   <h2 id="wichtig">Das ist uns wichtig</h2>
   <section class="col-3">
     <div>
-      <img src="apple.png" alt="apple icon" width="50px" class="center">
+      <img src="img/apple.png" alt="apple icon" width="50px" class="center">
       <p class="section-subtext">Frische Zutaten</p>
     </div>
     <div>
-      <img src="bowl.png" alt="bowl icon" width="50px" class="center">
+      <img src="img/bowl.png" alt="bowl icon" width="50px" class="center">
       <p class="section-subtext">Ausgewogenen Gerichte</p>
     </div>
     <div>
-      <img src="mask.png" alt="mask icon" width="50px" class="center">
+      <img src="img/mask.png" alt="mask icon" width="50px" class="center">
       <p class="section-subtext">Sauberkeit</p>
     </div>
   </section>
