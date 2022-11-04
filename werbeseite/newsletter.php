@@ -86,6 +86,7 @@ function valNewsletter() : array {
             'mail' => '',
             'lang' => '',
             'dsgvo' => '',
+            'submit' => ''
         ]];
 
         $name = $_POST[POST_NEWSLETTER_NAME] ?? NULL;
@@ -114,6 +115,9 @@ function valNewsletter() : array {
             $newsletterOut['errors']['dsgvo'] = $dsgvoOut['error'];
 
         }
+        else{
+            $newsletterOut['errors']['submit'] = 'Nicht Submittet';
+        }
         return $newsletterOut;
 }
 
@@ -133,6 +137,7 @@ function signupToFile($signup) : void{
             $line = fgets($file);
             if(str_contains($line, $signup['mail'])){
                 $found = true;
+                break;
             }
         }
 
@@ -153,8 +158,6 @@ function signupToFile($signup) : void{
 
     }
     else{
-        echo"file does not exist?!";
-
         //WRITE SIGNUP TO NEW FILE
         $file = fopen('newsletter_signup.txt', 'w');
         if(!$file){

@@ -153,6 +153,9 @@ header{
     font-size: 22px;
     letter-spacing: 2px;
 }
+
+
+
 nav{
     display: grid;
     grid-template-columns: 25% 50% 25%;
@@ -249,6 +252,10 @@ tr:hover {
 
 [type="submit"]:hover {
     border-bottom: inherit;
+}
+
+.flex-table img{
+
 }
 
 
