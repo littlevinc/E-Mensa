@@ -68,7 +68,7 @@ include ("meals.php");
                     <td>{$meal['name']}</td>
                     <td>" . showPrice($meal['price_intern']) . "</td>
                     <td> " . showPrice($meal['price_extern']) . "</td>
-                    <!--<td><img src='{$meal['img']}'></td>-->
+                    <td class='disalbe_padding'><img src='{$meal['img']}'></td>
                   </tr>";
         ?>
     </table>

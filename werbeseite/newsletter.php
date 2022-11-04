@@ -183,10 +183,7 @@ $formOutput = valNewsletter();
 if(errorFree($formOutput['errors'])){
     signupToFile($formOutput['values']);
 }
-else{
-    echo "<br><br><br>Some errors appeared<br>";
-    echo var_dump($formOutput['errors']);
-}
+
 
 ?>
 
