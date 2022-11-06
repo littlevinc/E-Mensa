@@ -27,7 +27,7 @@ h3{
 section{
     display: grid;
     justify-content: center;
-    margin: 30px 25% 0px 25%;
+    margin: 30px 25% 0 25%;
 }
 
 p{
@@ -223,7 +223,6 @@ footer li:first-child{
     margin-top: 20px;
     margin-bottom: 20px;
     text-align: center;
-    table-w
 }
 
 tr:first-child {
@@ -262,7 +261,5 @@ tr:hover {
 td {
     width: 300px;
 }
-
-
 
 
