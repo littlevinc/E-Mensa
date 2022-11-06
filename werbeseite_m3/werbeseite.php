@@ -6,6 +6,8 @@
  */
 
 include ("meals.php");
+include ("website_stats.php");
+include ("visitor_log.php")
 
 ?>
 
@@ -102,15 +104,15 @@ include ("meals.php");
   <h2 id="zahlen">E-Mensa im Zahlen</h2>
   <section class="col-3">
     <div>
-      <p class="section-highlight">124</p>
+      <p class="section-highlight"><?php databaseUserCount(); ?></p>
       <p class="section-subtext">Besuche</p>
     </div>
     <div>
-      <p class="section-highlight">32</p>
+      <p class="section-highlight"><?php echo getNewsletterAnmeldungen(); ?></p>
       <p class="section-subtext">Anmeldungen zum Newsletter</p>
     </div>
     <div>
-      <p class="section-highlight">2</p>
+      <p class="section-highlight"><?php echo getNumberGerichte() ?></p>
       <p class="section-subtext">Speisen</p>
     </div>
   </section>
@@ -139,6 +141,7 @@ include ("meals.php");
 
 
   <h3 id="greetings">Wir freuen uns auf Ihren Besuch</h3>
+    <?php databaseUserCount(); ?>
 
 
 </div>
