@@ -34,7 +34,6 @@ CREATE TABLE gericht_hat_allergen (
     PRIMARY KEY (code, gericht_id)
 );
 
-
 CREATE TABLE gericht_hat_kategorie (
     gericht_id TINYINT NOT NULL,
     kategorie_id TINYINT NOT NULL, 
@@ -42,8 +41,6 @@ CREATE TABLE gericht_hat_kategorie (
     FOREIGN KEY (kategorie_id) REFERENCES kategorie(id),
     PRIMARY KEY (gericht_id, kategorie_id)
 );
-
-
 
 /* Aufgabe 3 Teilaufgabe 4) */
 SELECT count(*) AS "COUNT DATASETS" FROM gericht;
@@ -53,3 +50,16 @@ SELECT count(*) AS "COUNT DATASETS" FROM gericht_hat_allergen;
 SELECT count(*) AS "COUNT DATASETS" FROM gericht_hat_kategorie;
 
 
+/* Erweiterung durch Aufgabe 7 - Referentille Integrität und Constraints */
+
+/* UNIQUE CONSTRAINTS für Tabellen*/
+
+ALTER TABLE gericht ADD UNIQUE (id);
+ALTER TABLE kategorie ADD UNIQUE (id);
+
+/* Table for Task 9 to keep track of user Stats */
+CREATE TABLE access_log (
+    logID INT PRIMARY KEY AUTO_INCREMENT, 
+    access_time TIME,
+    log_type VARCHAR(100) NOT NULL
+);
