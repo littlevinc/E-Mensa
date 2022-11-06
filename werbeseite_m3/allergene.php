@@ -7,7 +7,6 @@ if (!$link) {
     exit();
 }
 
-
 $sql = "SELECT * FROM allergen";
 
 $result = mysqli_query($link, $sql);
