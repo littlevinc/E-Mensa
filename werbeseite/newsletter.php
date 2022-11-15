@@ -174,8 +174,6 @@ function signupToFile($signup) : void{
 }
 
 
-
-
 $formOutput = valNewsletter();
 //Check if there are any errors in$formOutput
 

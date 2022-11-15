@@ -70,9 +70,11 @@ $ratings = [
         'stars' => 3 ]
 ];
 
+/**
 if (empty($_GET[GET_PARAM_SEARCH_TEXT])){
     echo "empty text";
 }
+*/
 
 $showRatings = [];
 if (!empty($_GET[GET_PARAM_SEARCH_TEXT])) {
