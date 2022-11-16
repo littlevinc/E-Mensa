@@ -1,7 +1,20 @@
-SELECT id, name, beschreibung, GROUP_CONCAT(code)
-FROM gericht G JOIN gericht_hat_allergen H ON G.id = H.gericht_id
+SELECT G.id, G.name, G.beschreibung, GROUP_CONCAT(H.code) AS "Allergen Code", GROUP_CONCAT(A.name) AS "Allergene"
+FROM gericht G 
+LEFT JOIN gericht_hat_allergen H ON G.id = H.gericht_id
+LEFT JOIN allergen A On H.code = A.code
 GROUP BY id
 ORDER BY G.id;
+
+
+/* Alternative für a mit sub select*/
+SELECT id, name, beschreibung, (SELECT * FROM allergen WHERE code IN code)
+FROM gericht G LEFT JOIN gericht_hat_allergen H ON G.id = H.gericht_id
+GROUP BY id
+ORDER BY G.id;
+
+
+
+
 
 SELECT id, name, beschreibung, GROUP_CONCAT(code)
 FROM gericht G LEFT JOIN gericht_hat_allergen H ON G.id = H.gericht_id
