@@ -7,7 +7,7 @@ if (!$link) {
     exit();
 }
 
-$sql = "SELECT * FROM allergen";
+$sql = "SELECT DISTINCT A.code, A.name, A.typ FROM gericht_hat_allergen GCA INNER JOIN (SELECT id FROM gericht LIMIT 5) AS G ON G.id = GCA.gericht_id JOIN allergen A ON GCA.code = A.code ORDER BY A.code";
 
 $result = mysqli_query($link, $sql);
 
