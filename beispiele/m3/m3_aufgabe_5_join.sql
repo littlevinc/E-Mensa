@@ -22,4 +22,10 @@ FROM gericht G
 LIMIT 5;
 
 
-SELECT GROUP_CONCAT(code) AS 'allergene'  FROM gericht G LEFT JOIN gericht_hat_allergen K ON G.id = K.gericht_id GROUP BY allergene ORDER BY id LIMIT 5;
+
+/* query that returns basic meal info as well as all contained allergens (Task 1. and 2. )*/
+SELECT id, name, preis_intern, preis_extern, GROUP_CONCAT(code) AS 'allergene'  FROM gericht G LEFT JOIN gericht_hat_allergen K ON G.id = K.gericht_id GROUP BY name ORDER BY id LIMIT 5
+
+
+/* query that only prints allergens contained in the top 5 meals from gericht table */
+SELECT DISTINCT A.code, A.name, A.typ FROM gericht_hat_allergen GCA INNER JOIN (SELECT id FROM gericht LIMIT 5) AS G ON G.id = GCA.gericht_id JOIN allergen A ON GCA.code = A.code ORDER BY A.code;
