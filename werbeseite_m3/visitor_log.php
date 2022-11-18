@@ -14,7 +14,7 @@ $sql_query = "INSERT INTO access_log (access_time, log_type) VALUES ('$log_time'
 $result = mysqli_query($link, $sql_query);
 
 if(!$result) {
-    echo "Error while writing website access log: ", mysqli_error();
+    echo "Error while writing website access log: ", mysqli_error($link);
 }
 
 // FRAGE: was macht free_result -> Zeigt fehler wenn uncommented

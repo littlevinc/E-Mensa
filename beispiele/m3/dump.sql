@@ -1,8 +1,8 @@
--- MariaDB dump 10.19  Distrib 10.8.3-MariaDB, for osx10.17 (arm64)
+-- MariaDB dump 10.19  Distrib 10.9.4-MariaDB, for osx10.18 (arm64)
 --
 -- Host: localhost    Database: emensawerbeseite
 -- ------------------------------------------------------
--- Server version	10.8.3-MariaDB
+-- Server version	10.9.4-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,6 +16,63 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `access_log`
+--
+
+DROP TABLE IF EXISTS `access_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `access_log` (
+  `logID` int(11) NOT NULL AUTO_INCREMENT,
+  `access_time` time DEFAULT NULL,
+  `log_type` varchar(100) NOT NULL,
+  PRIMARY KEY (`logID`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `access_log`
+--
+
+LOCK TABLES `access_log` WRITE;
+/*!40000 ALTER TABLE `access_log` DISABLE KEYS */;
+INSERT INTO `access_log` VALUES
+(1,'11:41:30','Website Access'),
+(2,'11:41:33','Website Access'),
+(3,'11:41:34','Website Access'),
+(4,'23:12:48','Website Access'),
+(5,'23:13:03','Website Access'),
+(6,'23:13:04','Website Access'),
+(7,'23:13:04','Website Access'),
+(8,'23:13:05','Website Access'),
+(9,'23:13:05','Website Access'),
+(10,'23:13:06','Website Access'),
+(11,'23:13:06','Website Access'),
+(12,'23:13:06','Website Access'),
+(13,'23:13:06','Website Access'),
+(14,'23:13:07','Website Access'),
+(15,'23:13:07','Website Access'),
+(16,'23:13:07','Website Access'),
+(17,'23:13:07','Website Access'),
+(18,'23:13:07','Website Access'),
+(19,'23:13:08','Website Access'),
+(20,'23:13:08','Website Access'),
+(21,'23:13:08','Website Access'),
+(22,'23:13:08','Website Access'),
+(23,'23:13:08','Website Access'),
+(24,'23:13:08','Website Access'),
+(25,'23:13:12','Website Access'),
+(26,'14:23:57','Website Access'),
+(27,'16:48:53','Website Access'),
+(28,'16:01:01','Website Access'),
+(29,'16:11:16','Website Access'),
+(30,'18:22:43','Website Access'),
+(31,'18:22:52','Website Access'),
+(32,'16:10:17','Website Access');
+/*!40000 ALTER TABLE `access_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `allergen`
 --
 
@@ -23,9 +80,9 @@ DROP TABLE IF EXISTS `allergen`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `allergen` (
-  `code` char(4) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `typ` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` char(4) NOT NULL,
+  `name` varchar(300) NOT NULL,
+  `typ` varchar(20) NOT NULL,
   PRIMARY KEY (`code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -70,14 +127,15 @@ DROP TABLE IF EXISTS `gericht`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gericht` (
   `id` tinyint(4) NOT NULL,
-  `name` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `beschreibung` varchar(800) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(80) NOT NULL,
+  `beschreibung` varchar(800) NOT NULL,
   `erfasst_am` date NOT NULL,
   `vegetarisch` tinyint(1) NOT NULL,
   `vegan` tinyint(1) NOT NULL,
   `preis_intern` double NOT NULL,
   `preis_extern` double NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
   CONSTRAINT `controll_price` CHECK (`preis_extern` > `preis_intern`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -120,7 +178,7 @@ DROP TABLE IF EXISTS `gericht_hat_allergen`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gericht_hat_allergen` (
-  `code` char(4) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` char(4) NOT NULL,
   `gericht_id` tinyint(4) NOT NULL,
   PRIMARY KEY (`code`,`gericht_id`),
   KEY `gericht_id` (`gericht_id`),
@@ -220,10 +278,11 @@ DROP TABLE IF EXISTS `kategorie`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `kategorie` (
   `id` tinyint(4) NOT NULL,
-  `name` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(80) NOT NULL,
   `eltern_id` tinyint(4) DEFAULT NULL,
-  `bildname` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bildname` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
   KEY `eltern_id` (`eltern_id`),
   CONSTRAINT `kategorie_ibfk_1` FOREIGN KEY (`eltern_id`) REFERENCES `kategorie` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -255,4 +314,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-05 15:21:12
+-- Dump completed on 2022-11-18 17:17:52
