@@ -17,8 +17,7 @@ if(!$result) {
     echo "Error while writing website access log: ", mysqli_error($link);
 }
 
-// FRAGE: was macht free_result -> Zeigt fehler wenn uncommented
-//mysqli_free_result($result);
+//mysqli_free_result($result); // shows error, caused by database
 mysqli_close($link);
 
 

@@ -141,7 +141,7 @@ include ("visitor_log.php")
 
 
   <h3 id="greetings">Wir freuen uns auf Ihren Besuch</h3>
-    <?php databaseUserCount(); ?>
+
 
 
 </div>
