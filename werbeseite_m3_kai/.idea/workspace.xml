@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="b0ca279c-e4a0-4af4-971c-e875d9df1986" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../beispiele/m3/m3_aufgabe2_kai.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0912d928-2fce-42d7-98ed-a2ee323b624b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0912d928-2fce-42d7-98ed-a2ee323b624b.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newsletter_signup.txt" beforeDir="false" afterPath="$PROJECT_DIR$/newsletter_signup.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../werbeseite/.idea/dataSources/0912d928-2fce-42d7-98ed-a2ee323b624b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../werbeseite/.idea/dataSources/0912d928-2fce-42d7-98ed-a2ee323b624b.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../werbeseite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../werbeseite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../werbeseite/newsletter_signup.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../werbeseite/newsletter_signup.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.a2_editor.sql.swp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/a2_editor.sql" beforeDir="false" afterPath="$PROJECT_DIR$/a2_editor.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newsletter.php" beforeDir="false" afterPath="$PROJECT_DIR$/newsletter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/werbeseite.php" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,35 +38,37 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.1" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.1.12">
+    <include_path>
+      <path value="/opt/homebrew/Cellar/php/8.1.12/share/php/pear" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="2FuSNpPYNDTfRFzK3W8VPcxyiUj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/kaifedin/Documents/University/semester_3/DBWT/E-Mensa/beispiele/m3",
-    "list.type.of.created.stylesheet": "CSS",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "Errors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kaifedin/Documents/University/semester_3/DBWT/E-Mensa/werbeseite_m3_kai&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;cockroach&quot;,
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../beispiele/m3" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/pictures" />
@@ -72,7 +78,7 @@
     <configuration name="werbeseite.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/werbeseite.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
-          <option name="interpreterName" value="PHP" />
+          <option name="interpreterName" value="PHP 8.1.12" />
         </PhpTestInterpreterSettings>
       </CommandLine>
       <method v="2" />
@@ -104,10 +110,13 @@
       <workItem from="1667567356445" duration="819000" />
       <workItem from="1667569850822" duration="611000" />
       <workItem from="1667904473974" duration="2293000" />
-      <workItem from="1668507294175" duration="2615000" />
-      <workItem from="1668509999606" duration="143000" />
-      <workItem from="1668510150822" duration="2266000" />
-      <workItem from="1668525676532" duration="921000" />
+      <workItem from="1668526615834" duration="19000" />
+      <workItem from="1668526723049" duration="3061000" />
+      <workItem from="1668596753587" duration="3007000" />
+      <workItem from="1668601923069" duration="2887000" />
+      <workItem from="1668679309802" duration="2737000" />
+      <workItem from="1668932242351" duration="8185000" />
+      <workItem from="1668959213054" duration="3443000" />
     </task>
     <servers />
   </component>
@@ -124,9 +133,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

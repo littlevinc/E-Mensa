@@ -7,6 +7,36 @@
 
 include ("meals.php");
 
+$link = mysqli_connect("localhost", "root", "root", "emensawerbeseite");
+
+if(!$link){
+    echo "Connection failed" , mysqli_connect_error();
+}
+
+$sql = "INSERT INTO besucher VALUES();";
+
+$result = mysqli_query($link, $sql);
+
+$sql = "SELECT g.name AS name, g.preis_intern AS preis_intern, g.preis_extern AS preis_extern, GROUP_CONCAT(ga.code) AS allergene
+FROM gericht g JOIN gericht_hat_allergen ga ON g.id = ga.gericht_id GROUP BY g.name LIMIT 5;";
+
+$resultMeals = mysqli_query($link, $sql);
+if(!$resultMeals) {
+    echo "Feher in der query" . mysqli_error($link);
+
+}
+
+
+$sql = "SELECT COUNT(id) AS visitorcount FROM besucher;";
+$resultvisiterCount = mysqli_query($link, $sql);
+$visitorCount[] = mysqli_fetch_assoc($resultvisiterCount);
+
+
+$sql = "SELECT COUNT(id) AS mealcount FROM gericht;";
+$resultmealCount = mysqli_query($link, $sql);
+$mealCount[] = mysqli_fetch_assoc($resultmealCount);
+
+
 ?>
 
 
@@ -61,15 +91,25 @@ include ("meals.php");
         <th>Gericht</th>
         <th>Interne</th>
         <th>Externe</th>
-        <th>Bild</th>
+        <th>Allergene</th>
       </tr>
         <?php
+
+        while($row = mysqli_fetch_assoc($resultMeals)){
+            echo "<tr> <td>{$row['name']}</td>";
+            echo "<td>" . showPrice($row['preis_intern']) . "</td>";
+            echo "<td>" . showPrice($row['preis_extern']) . "</td>";
+            echo "<td>{$row['allergene']}</td></tr>";
+        }
+
+        /**
         foreach($meals as $meal) echo "<tr>
                     <td>{$meal['name']}</td>
                     <td>" . showPrice($meal['price_intern']) . "</td>
                     <td> " . showPrice($meal['price_extern']) . "</td>
                     <td class='disalbe_padding'><img src='{$meal['img']}'></td>
                   </tr>";
+         **/
         ?>
     </table>
   </section>
@@ -77,15 +117,15 @@ include ("meals.php");
   <h2 id="zahlen">E-Mensa im Zahlen</h2>
   <section class="col-3">
     <div>
-      <p class="section-highlight">124</p>
+      <p class="section-highlight"><?php #echo $visitorCount[0]['visitorCount'] ?></p>
       <p class="section-subtext">Besuche</p>
     </div>
     <div>
-      <p class="section-highlight">32</p>
+      <p class="section-highlight"><?php echo countSignups(); ?>></p>
       <p class="section-subtext">Anmeldungen zum Newsletter</p>
     </div>
     <div>
-      <p class="section-highlight">2</p>
+      <p class="section-highlight"><?php #echo $mealCount[0]['mealCount'] ?></p>
       <p class="section-subtext">Speisen</p>
     </div>
   </section>
@@ -131,3 +171,12 @@ include ("meals.php");
 
 </body>
 </html>
+
+<?php
+
+mysqli_free_result($resultMeals);
+mysqli_free_result($resultvisiterCount);
+mysqli_free_result($resultmealCount);
+mysqli_close($link);
+
+?>

@@ -1162,199 +1162,219 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="336" parent="324" name="gericht">
+    <table id="336" parent="324" name="besucher">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="337" parent="324" name="gericht_hat_allergen">
+    <table id="337" parent="324" name="gericht">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="338" parent="324" name="gericht_hat_kategorie">
+    <table id="338" parent="324" name="gericht_hat_allergen">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <table id="339" parent="324" name="kategorie">
+    <table id="339" parent="324" name="gericht_hat_kategorie">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
-    <column id="340" parent="335" name="code">
+    <table id="340" parent="324" name="kategorie">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </table>
+    <column id="341" parent="335" name="code">
       <DataType>char(4)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="341" parent="335" name="name">
+    <column id="342" parent="335" name="name">
       <DataType>varchar(300)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="342" parent="335" name="typ">
+    <column id="343" parent="335" name="typ">
       <DataType>varchar(20)|0s</DataType>
       <DefaultExpression>&apos;allergen&apos;</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <index id="343" parent="335" name="PRIMARY">
+    <index id="344" parent="335" name="PRIMARY">
       <ColNames>code</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="344" parent="335" name="PRIMARY">
+    <key id="345" parent="335" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <check id="345" parent="336" name="preis_intern">
-      <Predicate>`preis_intern` &lt; 0 and `preis_intern` &lt;= `preis_extern`</Predicate>
-    </check>
     <column id="346" parent="336" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <index id="347" parent="336" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="348" parent="336" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <check id="349" parent="337" name="preis_intern">
+      <Predicate>`preis_intern` &gt; 0 and `preis_intern` &lt;= `preis_extern`</Predicate>
+    </check>
+    <column id="350" parent="337" name="id">
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="347" parent="336" name="name">
+    <column id="351" parent="337" name="name">
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="348" parent="336" name="beschreibung">
+    <column id="352" parent="337" name="beschreibung">
       <DataType>varchar(800)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="349" parent="336" name="erfasst_am">
+    <column id="353" parent="337" name="erfasst_am">
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="350" parent="336" name="vegetarisch">
+    <column id="354" parent="337" name="vegetarisch">
       <DataType>tinyint(1)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="351" parent="336" name="vegan">
+    <column id="355" parent="337" name="vegan">
       <DataType>tinyint(1)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="352" parent="336" name="preis_intern">
+    <column id="356" parent="337" name="preis_intern">
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="353" parent="336" name="preis_extern">
+    <column id="357" parent="337" name="preis_extern">
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <index id="354" parent="336" name="PRIMARY">
+    <index id="358" parent="337" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="355" parent="336" name="name">
+    <index id="359" parent="337" name="name">
       <ColNames>name</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="356" parent="336" name="PRIMARY">
+    <key id="360" parent="337" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="357" parent="336" name="name">
+    <key id="361" parent="337" name="name">
       <UnderlyingIndexName>name</UnderlyingIndexName>
     </key>
-    <column id="358" parent="337" name="code">
+    <column id="362" parent="338" name="code">
       <DataType>char(4)|0s</DataType>
       <Position>1</Position>
     </column>
-    <column id="359" parent="337" name="gericht_id">
+    <column id="363" parent="338" name="gericht_id">
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <foreign-key id="360" parent="337" name="gericht_hat_allergen_ibfk_1">
+    <foreign-key id="364" parent="338" name="gericht_hat_allergen_ibfk_1">
       <ColNames>code</ColNames>
       <RefColNames>code</RefColNames>
       <RefTableName>allergen</RefTableName>
     </foreign-key>
-    <foreign-key id="361" parent="337" name="gericht_hat_allergen_ibfk_2">
-      <ColNames>gericht_id</ColNames>
-      <RefColNames>id</RefColNames>
-      <RefTableName>kategorie</RefTableName>
-    </foreign-key>
-    <index id="362" parent="337" name="code">
-      <ColNames>code</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="363" parent="337" name="gericht_id">
-      <ColNames>gericht_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <column id="364" parent="338" name="gericht_id">
-      <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="365" parent="338" name="kategorie_id">
-      <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <foreign-key id="366" parent="338" name="gericht_hat_kategorie_ibfk_1">
+    <foreign-key id="365" parent="338" name="gericht_hat_allergen_ibfk_2">
       <ColNames>gericht_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>gericht</RefTableName>
     </foreign-key>
-    <foreign-key id="367" parent="338" name="gericht_hat_kategorie_ibfk_2">
-      <ColNames>kategorie_id</ColNames>
-      <RefColNames>id</RefColNames>
-      <RefTableName>kategorie</RefTableName>
-    </foreign-key>
-    <index id="368" parent="338" name="gericht_id">
+    <index id="366" parent="338" name="code">
+      <ColNames>code</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="367" parent="338" name="gericht_hat_allergen_ibfk_2">
       <ColNames>gericht_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="369" parent="338" name="kategorie_id">
-      <ColNames>kategorie_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <column id="370" parent="339" name="id">
+    <column id="368" parent="339" name="gericht_id">
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="371" parent="339" name="name">
+    <column id="369" parent="339" name="kategorie_id">
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <foreign-key id="370" parent="339" name="gericht_hat_kategorie_ibfk_1">
+      <ColNames>gericht_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>gericht</RefTableName>
+    </foreign-key>
+    <foreign-key id="371" parent="339" name="gericht_hat_kategorie_ibfk_2">
+      <ColNames>kategorie_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>kategorie</RefTableName>
+    </foreign-key>
+    <index id="372" parent="339" name="gericht_id">
+      <ColNames>gericht_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="373" parent="339" name="kategorie_id">
+      <ColNames>kategorie_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <column id="374" parent="340" name="id">
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="375" parent="340" name="name">
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="372" parent="339" name="eltern_id">
+    <column id="376" parent="340" name="eltern_id">
       <DataType>bigint(20)|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="373" parent="339" name="bildname">
+    <column id="377" parent="340" name="bildname">
       <DataType>varchar(200)|0s</DataType>
       <Position>4</Position>
     </column>
-    <foreign-key id="374" parent="339" name="kategorie_ibfk_1">
+    <foreign-key id="378" parent="340" name="kategorie_ibfk_1">
       <ColNames>eltern_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>kategorie</RefTableName>
     </foreign-key>
-    <index id="375" parent="339" name="PRIMARY">
+    <index id="379" parent="340" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="376" parent="339" name="eltern_id">
+    <index id="380" parent="340" name="eltern_id">
       <ColNames>eltern_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="377" parent="339" name="PRIMARY">
+    <key id="381" parent="340" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

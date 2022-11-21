@@ -173,6 +173,10 @@ function signupToFile($signup) : void{
 
 }
 
+function countSignups(): int{
+    return count(file('newsletter_signup.txt'));
+}
+
 
 $formOutput = valNewsletter();
 //Check if there are any errors in$formOutput
