@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Praktikum DBWT. Autoren:
+ * Luke, Braun, 3551708
+ * Kai , Fedin, 3515541
+ */
+
 $link = mysqli_connect("localhost", "root", "root", "emensawerbeseite");
 
 if(!$link) {
