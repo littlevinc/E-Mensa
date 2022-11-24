@@ -7,6 +7,24 @@
 
 include ("meals.php");
 
+function countSignups(): int{
+    /*
+    $file="largefile.txt";
+    $linecount = 0;
+    $handle = fopen($file, "r");
+    while(!feof($handle)){
+        $line = fgets($handle);
+        $linecount = $linecount + substr_count($line, PHP_EOL);
+    }
+
+    fclose($handle);
+    return $linecount;
+
+    */
+    return count(file("newsletter_signup.txt"));
+}
+
+
 $link = mysqli_connect("localhost", "root", "root", "emensawerbeseite");
 
 if(!$link){
@@ -23,7 +41,6 @@ FROM gericht g JOIN gericht_hat_allergen ga ON g.id = ga.gericht_id GROUP BY g.n
 $resultMeals = mysqli_query($link, $sql);
 if(!$resultMeals) {
     echo "Feher in der query" . mysqli_error($link);
-
 }
 
 
@@ -113,19 +130,19 @@ $mealCount[] = mysqli_fetch_assoc($resultmealCount);
         ?>
     </table>
   </section>
-
   <h2 id="zahlen">E-Mensa im Zahlen</h2>
   <section class="col-3">
     <div>
-      <p class="section-highlight"><?php #echo $visitorCount[0]['visitorCount'] ?></p>
+
+      <p class="section-highlight"><?php echo $visitorCount[0]['visitorcount'] ?></p>
       <p class="section-subtext">Besuche</p>
     </div>
     <div>
-      <p class="section-highlight"><?php echo countSignups(); ?>></p>
+      <p class="section-highlight"><?php  echo countSignups(); ?></p>
       <p class="section-subtext">Anmeldungen zum Newsletter</p>
     </div>
     <div>
-      <p class="section-highlight"><?php #echo $mealCount[0]['mealCount'] ?></p>
+      <p class="section-highlight"><?php echo $mealCount[0]['mealcount'] ?></p>
       <p class="section-subtext">Speisen</p>
     </div>
   </section>

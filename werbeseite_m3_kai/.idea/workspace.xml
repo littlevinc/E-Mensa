@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0ca279c-e4a0-4af4-971c-e875d9df1986" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../beispiele/m3/m3_aufgabe2_kai.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../werbeseite/.idea/dataSources/0912d928-2fce-42d7-98ed-a2ee323b624b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../werbeseite/.idea/dataSources/0912d928-2fce-42d7-98ed-a2ee323b624b.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../werbeseite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../werbeseite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../werbeseite/newsletter_signup.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../werbeseite/newsletter_signup.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.a2_editor.sql.swp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/a2_editor.sql" beforeDir="false" afterPath="$PROJECT_DIR$/a2_editor.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/497af289-b7d0-4263-b551-b99507d8c4d3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/497af289-b7d0-4263-b551-b99507d8c4d3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/newsletter.php" beforeDir="false" afterPath="$PROJECT_DIR$/newsletter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/werbeseite.php" beforeDir="false" afterPath="$PROJECT_DIR$/werbeseite.php" afterDir="false" />
     </list>
@@ -117,6 +113,7 @@
       <workItem from="1668679309802" duration="2737000" />
       <workItem from="1668932242351" duration="8185000" />
       <workItem from="1668959213054" duration="3443000" />
+      <workItem from="1669115579254" duration="1171000" />
     </task>
     <servers />
   </component>
