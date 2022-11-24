@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Praktikum DBWT. Autoren:
+ * Luke, Braun, 3551708
+ * Kai , Fedin, 3515541
+ */
+
 const POST_NEWSLETTER_NAME = 'user';
 const POST_NEWSLETTER_MAIL = 'mail';
 const POST_NEWSLETTER_LANG = 'lang';
