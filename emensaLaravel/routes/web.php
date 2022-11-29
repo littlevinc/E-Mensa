@@ -25,7 +25,9 @@ Route::get('/blog', [\App\Http\Controllers\ExampleController::class, 'getName'])
  * */
 Route::get('m4_7a_queryparameter', function () {
     return view('examples.m4_7a_queryparameter', [
-            'post' => 'Test 12345'
+            'post' => [\App\Http\Controllers\ExampleController::class, 'm4_7a_queryparameter']
         ]);
 });
+
+Route::get( 'test', [\App\Http\Controllers\ExampleController::class, 'test']);
 

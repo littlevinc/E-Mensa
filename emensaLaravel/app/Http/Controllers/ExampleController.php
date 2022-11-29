@@ -14,10 +14,11 @@ class ExampleController extends Controller
     /**
      * Aufgabe 7 a) takes parameter and returns
      * @param Request $request
-     * @return mixed
+     * @return mixed;
      */
-    public function m4_7a_queryparameter(Request $request) {
-        return $request->input('name');
+    public function test(Request $request) {
+        $name = $request->input('name');
+        return view('examples.m4_7a_queryparameter');
     }
 
 
