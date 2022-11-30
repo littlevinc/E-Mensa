@@ -17,33 +17,38 @@ const POST_GERICHT_EMAIL = 'email';
  * */
 
 
-if(empty($_POST[POST_GERICHT_ERSTELLER]))
-    $_POST[POST_GERICHT_ERSTELLER] = "Anonym";
+function createGericht() {
 
-$datestamp = date("Y-m-d");
-echo $datestamp;
+    if(empty($_POST[POST_GERICHT_ERSTELLER]))
+        $_POST[POST_GERICHT_ERSTELLER] = "Anonym";
+
+    $datestamp = date("Y-m-d");
 
 
 
-$link = mysqli_connect("localhost", "root", "root", "emensawerbeseite");
 
-if(!$link) {
-    echo "Error during connection establishment:", mysqli_connect_error();
-    exit();
+    $link = mysqli_connect("localhost", "root", "root", "emensawerbeseite");
+
+    if(!$link) {
+        echo "Error during connection establishment:", mysqli_connect_error();
+        exit();
+    }
+
+    // TODO: disable SQL injection possibility
+    $sql = "INSERT INTO wunschgerichte (name, beschreibung, erstelldatum, ersteller, email) 
+        VALUE ('$_POST[POST_GERICHT_NAME]', '$_POST[POST_GERICHT_BESCHREIBUNG]', '$datestamp', '$_POST[POST_GERICHT_ERSTELLER]', '$_POST[POST_GERICHT_EMAIL]')";
+
+    $result = mysqli_query($link, $sql);
+
+    if(!$result) {
+        echo "Error druing query!", mysqli_error($link);
+    }
+
+    //mysqli_free_result($result);
+    mysqli_close($link);
+
 }
 
-// TODO: disable SQL injection possibility
-$sql = "INSERT INTO wunschgerichte (name, beschreibung, erstelldatum, ersteller, email) 
-        VALUE ('$_POST(POST_GERICHT_NAME)', '$_POST(POST_GERICHT_BESCHREIBUNG)', '$datestamp', '$_POST(POST_GERICHT_ERSTELLER)', '$_POST(POST_GERICHT_EMAIL)')";
-
-$result = mysqli_query($link, $sql);
-
-if(!$result) {
-    echo "Error druing query!", mysqli_error($link);
-}
-
-//mysqli_free_result($result);
-mysqli_close($link);
 
 ?>
 
@@ -91,6 +96,11 @@ mysqli_close($link);
                         <input type="submit" name="anmeldung" value="Wunsch Abschicken" class="custom-button">
                     </fieldset>
                 </form>
+
+                <?php
+                if(isset($_POST[POST_GERICHT_NAME]))
+                    createGericht();
+                ?>
 
             </div>
         </section>

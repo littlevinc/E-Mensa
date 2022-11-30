@@ -17,17 +17,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/blog', [\App\Http\Controllers\ExampleController::class, 'getName']);
+
 
 
 /*
  * Aufgabe 7 a)
  * */
-Route::get('m4_7a_queryparameter', function () {
+
+/*
+ * Route::get('m4_7a_queryparameter', function () {
     return view('examples.m4_7a_queryparameter', [
             'post' => [\App\Http\Controllers\ExampleController::class, 'm4_7a_queryparameter']
         ]);
 });
 
-Route::get( 'test', [\App\Http\Controllers\ExampleController::class, 'test']);
+*/
+
+
+/**
+ * Aufgabe 7
+ */
+Route::get( 'm4_7a_queryparameter', [\App\Http\Controllers\ExampleController::class, 'taskA']);
+Route::get('m4_7b_kategorie', [\App\Http\Controllers\ExampleController::class, 'taskB']);
+Route::get('m4_7c_gerichte', [\App\Http\Controllers\ExampleController::class, 'taskC']);
+
 
