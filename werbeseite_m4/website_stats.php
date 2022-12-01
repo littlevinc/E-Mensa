@@ -54,8 +54,9 @@ function databaseUserCount() {
 
     $result = mysqli_query($link, $sql);
 
-    echo"result";
-    var_dump($result);
+
+    //echo"result";
+    //var_dump($result);
 
     if(!$result) {
         echo "Error during database query: ", mysqli_error();
@@ -66,8 +67,11 @@ function databaseUserCount() {
         $stats[] = $row;
     }
 
-    echo $stats[0]['logs'];
+
+
 
     mysqli_free_result($result);
     mysqli_close($link);
+
+    echo  $stats[0]['logs'];
 }

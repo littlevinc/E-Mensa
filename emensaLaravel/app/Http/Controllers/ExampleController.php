@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 class ExampleController extends Controller
 {
 
-    public function getName() {
-        return "This is the getName method";
-    }
 
     /**
      * Aufgabe 7 a) takes parameter and returns
@@ -90,8 +87,5 @@ class ExampleController extends Controller
             return view('examples.pages.m4_7d_page_1');
 
     }
-
-
-
 
 }

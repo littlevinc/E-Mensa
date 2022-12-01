@@ -20,18 +20,6 @@ Route::get('/', function () {
 
 
 
-/*
- * Aufgabe 7 a)
- * */
-
-/*
- * Route::get('m4_7a_queryparameter', function () {
-    return view('examples.m4_7a_queryparameter', [
-            'post' => [\App\Http\Controllers\ExampleController::class, 'm4_7a_queryparameter']
-        ]);
-});
-
-*/
 
 
 /**
