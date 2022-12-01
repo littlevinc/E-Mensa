@@ -78,6 +78,19 @@ class ExampleController extends Controller
 
     }
 
+    public function taskD(Request $request) {
+
+        $no = $request->input('no');
+
+        if($no == 1)
+            return view('examples.pages.m4_7d_page_1');
+        elseif ($no == 2)
+            return view('examples.pages.m4_7d_page_2');
+        else
+            return view('examples.pages.m4_7d_page_1');
+
+    }
+
 
 
 

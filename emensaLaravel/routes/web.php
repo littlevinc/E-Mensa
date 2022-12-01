@@ -40,5 +40,7 @@ Route::get('/', function () {
 Route::get( 'm4_7a_queryparameter', [\App\Http\Controllers\ExampleController::class, 'taskA']);
 Route::get('m4_7b_kategorie', [\App\Http\Controllers\ExampleController::class, 'taskB']);
 Route::get('m4_7c_gerichte', [\App\Http\Controllers\ExampleController::class, 'taskC']);
+Route::get('m4_7d_layout', [\App\Http\Controllers\ExampleController::class, 'taskD']);
+
 
 
