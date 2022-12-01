@@ -81,8 +81,6 @@ include ("visitor_log.php")
 
         </table>
 
-
-
     </section>
 
 
@@ -122,7 +120,6 @@ include ("visitor_log.php")
       <img src="img/mask.png" alt="mask icon" width="50px" class="center">
       <p class="section-subtext">Sauberkeit</p>
     </div>
-
   </section>
 
     <section>

@@ -1,0 +1,267 @@
+*{
+    font-family: proxima-nova, sans-serif;
+    font-weight: 200;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: futura-pt,  Helvetica, sans-serif;
+    font-style: normal;
+    letter-spacing: 2px;
+    white-space: pre-wrap;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: -30px;
+    text-transform: uppercase;
+}
+
+h2{
+    font-size: 30px;
+}
+
+h3{
+    font-size: 20px;
+}
+
+section{
+    display: grid;
+    justify-content: center;
+    margin: 30px 25% 0 25%;
+}
+
+p{
+    text-align: justify;
+}
+
+a{
+    color:black
+}
+
+.col-3 {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    gap: 10px;
+}
+.col-3  p{
+    text-align: center;
+}
+
+.section-highlight{
+    font-family: Futura;
+    font-size: 56px;
+    margin-bottom: 0px;
+    color: rgb(136, 183, 181);
+    margin-top: 5px;
+}
+
+.section-subtext{
+    margin-top: 5px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: futura-pt, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    font-weight: lighter;
+}
+
+.usp-about{
+    font-family: Helvetica;
+    font-size: 15px;
+    margin-bottom: 0px;
+    color: black;
+    margin-top: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+fieldset{
+    border: none;
+}
+
+.formfield{
+    margin-bottom: 30px;
+}
+
+input{
+    border: none;
+    border-bottom: lightgrey solid 1px;
+    width: 100%;
+    padding-bottom: 5px;
+    font-size: 16px;
+}
+
+input:hover, select:hover {
+    border-bottom: #161616 solid 1px;
+}
+
+input::placeholder{
+    font-size: 16px;
+}
+
+
+input:focus, select:focus{
+    outline: none;
+}
+
+select{
+    border: none;
+    font-size: 16px;
+    color: grey;
+    border-bottom: lightgrey solid 1px;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+
+#dsgvo{
+    width: inherit;
+    accent-color: grey;
+    background-color: red;
+    border: 3px solid grey;
+}
+
+header{
+}
+
+
+#greetings {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.logo{
+    margin-left: 25px;
+    margin-top: 8px;
+}
+.logo-text{
+    margin-left: 40px;
+    display:flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    justify-content: center;
+    font-family: Helvetica;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+
+
+nav{
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    margin-bottom: 20px;
+}
+
+nav ul{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 0px;
+
+}
+
+nav li{
+    display:inline;
+    text-align: center;
+
+}
+
+nav a{
+    text-decoration: none;
+    color:black;
+}
+nav a:hover{
+    text-decoration: underline;
+}
+
+header>img{
+    margin-left: 25%;
+}
+footer{
+    border-top: 1px solid lightgrey;
+    padding: 5px 0px 10px 0px;
+    display:grid;
+    justify-content: center;
+}
+footer li{
+    display:inline;
+    padding: 0 12px 0 10px;
+    border-left: black solid 1px;
+}
+footer li:first-child{
+    border-left: none;
+}
+
+.custom-button{
+    background-color: #161616;
+    color: white;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+.custom-button:hover, button:hover {
+    background-color: white;
+    color: black;
+}
+
+.flex-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+tr:first-child {
+    text-align: left;
+}
+
+tr:hover {
+    background-color: #ededed;
+}
+
+.flex-table tr {
+    border-bottom: 1px solid darkgray;
+}
+.flex-table th {
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    border: 0px    ;
+    color: white;
+    background-color: #161616;
+}
+
+.flex-table td:first-child {
+    text-align: left;
+    padding: 10px 40px 10px 20px;
+    width: 50%;
+}
+
+[type="submit"]:hover {
+    border-bottom: inherit;
+}
+
+.flex-table img{
+    width: 50px;
+}
+
+td {
+    width: 300px;
+}
+
+

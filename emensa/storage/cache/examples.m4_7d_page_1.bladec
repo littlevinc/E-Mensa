@@ -1,0 +1,17 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title', 'Page 1'); ?>
+
+<?php $this->startSection('header'); ?>
+ <p>Some Header</p>
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('main'); ?>
+ <p>Some main</p>
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('footer'); ?>
+ <p>Some footer</p>
+<?php $this->stopSection(); ?>
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild("examples.m4layout"); } ?>

@@ -81,14 +81,12 @@ function valGerichtBeschreibung($beschreibung) : array{
 
 function valErstellerName($erstellerName) : array{
 
+
     $fehlerName = null;
 
-    if (!empty($erstellerName) &&ctype_alpha(str_replace(' ', '', $erstellerName)) === false){
+    if (!empty($erstellerName) && ctype_alpha(str_replace(' ', '', $erstellerName)) === false){
         $fehlerName = "Beschreibung darf nur Buchstaben enthalten.";
         $erstellerName = trim($erstellerName);
-    }
-    else{
-        $erstellerName = NULL;
     }
 
     return ['value' => $erstellerName, 'error' => $fehlerName];
@@ -102,12 +100,9 @@ function valErstellerMail($erstellerMail) : array{
     if(!empty($erstellerMail)){
         $erstellerMail = filter_var($erstellerMail, FILTER_SANITIZE_EMAIL);
 
+
         if(!filter_var($erstellerMail, FILTER_VALIDATE_EMAIL)){
             $fehlerMail = "Es wurde keine korrekte E-Mail eingegeben.";
-            $erstellerMail = trim($erstellerMail);
-        }
-        else{
-            $erstellerMail = NULL;
         }
     }
     return ['value' => $erstellerMail , 'error' => $fehlerMail];
@@ -131,8 +126,6 @@ function insertWunschgerichtToDB($request) {
     $erstellerName = $request['erstellerName'];
     $erstellerMail = $request['erstellerMail'];
 
-    echo "<br> INSERT WUNSCHGERICHT" . $request['gerichtName'] . "<br>";
-
     $link = mysqli_connect('localhost', 'root', 'root', 'emensawerbeseite');
 
     if(!$link){
@@ -140,11 +133,27 @@ function insertWunschgerichtToDB($request) {
         exit();
     }
 
-    $sql = "INSERT INTO wunschgerichte (gericht_name, gericht_beschreibung, ersteller_name, ersteller_mail) VALUES ('$gerichtName', '$gerichtBeschreibung', '$erstellerName', '$erstellerMail');";
+
+    if(!empty($erstellerName) && !empty($erstellerMail)){
+
+        $sql = "INSERT INTO wunschgerichte (gericht_name, gericht_beschreibung, ersteller_name, ersteller_mail) VALUES ('$gerichtName', '$gerichtBeschreibung', '$erstellerName', '$erstellerMail');";
+    }
+    elseif (empty($erstellerName) && empty($erstellerMail)){
+
+        $sql = "INSERT INTO wunschgerichte (gericht_name, gericht_beschreibung) VALUES ('$gerichtName', '$gerichtBeschreibung');";
+
+    }elseif (empty($erstellerName) ){
+
+        $sql = "INSERT INTO wunschgerichte (gericht_name, gericht_beschreibung, ersteller_mail) VALUES ('$gerichtName', '$gerichtBeschreibung', '$erstellerMail');";
+
+    }elseif(empty($erstellerMail)){
+
+        $sql = "INSERT INTO wunschgerichte (gericht_name, gericht_beschreibung, ersteller_name) VALUES ('$gerichtName', '$gerichtBeschreibung', '$erstellerName');";
+
+    }
 
     $result = mysqli_query($link, $sql);
 
-    echo $result;
 
     mysqli_close($link);
 }
@@ -157,6 +166,7 @@ if(errorFree($wunschgerichtFormValues['errors'])){
 
 }
 else{
+    /*
     echo "not error free";
     echo "gericht name value " . $wunschgerichtFormValues['values']['gerichtName'] . "<br>";
     echo "Beschreibung value " . $wunschgerichtFormValues['values']['gerichtBeschreibung'] . "<br>";
@@ -167,6 +177,7 @@ else{
     echo "Beschreibung error " . $wunschgerichtFormValues['errors']['gerichtBeschreibung'] . "<br>";
     echo "erstllerName error " . $wunschgerichtFormValues['errors']['erstellerName'] . "<br>";
     echo "erstellerBeschreibung error " .$wunschgerichtFormValues['errors']['erstellerMail'] . "<br>";
+    */
 }
 
 
