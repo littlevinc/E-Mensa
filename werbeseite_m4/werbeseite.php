@@ -81,6 +81,8 @@ include ("visitor_log.php")
 
         </table>
 
+
+
     </section>
 
 

@@ -1,10 +1,11 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/../models/gericht.php');
 
-/* Datei: controllers/HomeController.php */
-class HomeController
+require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/gericht.php');
+
+class EmensaController
 {
-    public function index(RequestData $request) {
+    public function index(RequestData $request)
+    {
         $gerichte = db_gericht_uebersicht();
 
         return view('emensa.home', [
@@ -12,7 +13,6 @@ class HomeController
             'gerichte' => $gerichte
         ]);
     }
-
 
 
 }

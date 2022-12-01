@@ -1,3 +1,4 @@
+@section('navbar')
 <nav>
     <!--
     <div class="logo"><img src="pictures/mensa-logo.png" alt="E-Mensa Logo" width="100px"></div>
@@ -14,3 +15,4 @@
 
     </div>
 </nav>
+@endsection

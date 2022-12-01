@@ -52,11 +52,11 @@ class ExampleController
         $pageNumber = $rd->query['no'] ?? '1';
 
         if($pageNumber == '2'){
-            return view('examples.m4_7d_page_2',
+            return view('examples.pages.m4_7d_page_2',
                 ['rd' => $rd]);
         }
         else{
-            return view('examples.m4_7d_page_1',
+            return view('examples.pages.m4_7d_page_1',
                 ['rd' => $rd]);
         }
 

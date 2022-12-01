@@ -1,6 +1,5 @@
 <?php
 
-//TODO Default = anonym scheint noch nicht zu funktionieren
 
 function valWunschgericht() : array{
 
