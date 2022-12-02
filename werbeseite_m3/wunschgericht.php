@@ -1,32 +1,15 @@
 <?php
 const POST_GERICHT_NAME = 'name';
-const POST_GERICHT_BESCHREIBUNG = 'description';
-const POST_GERICHT_ERSTELLER = 'creator';
+const POST_GERICHT_BESCHREIBUNG = 'beschreibung';
+const POST_GERICHT_ERSTELLER = 'ersteller';
 const POST_GERICHT_EMAIL = 'email';
 
 
+if(isset($_POST['submit'])) {
 
-/*
- * Database modell
- * wunschgerichte(idWunsch, name, beschreibung, erstelldatum, ersteller(name, email))
- *
- * ersteller gibt keinen namen an >> 'anonym' eintragen
- *
- *
- *
- * */
-
-
-function createGericht() {
-
-    if(empty($_POST[POST_GERICHT_ERSTELLER]))
-        $_POST[POST_GERICHT_ERSTELLER] = "Anonym";
-
-    $datestamp = date("Y-m-d");
-
-
-
-
+    /**
+     * Connect to database
+     */
     $link = mysqli_connect("localhost", "root", "root", "emensawerbeseite");
 
     if(!$link) {
@@ -34,9 +17,42 @@ function createGericht() {
         exit();
     }
 
-    // TODO: disable SQL injection possibility
-    $sql = "INSERT INTO wunschgerichte (name, beschreibung, erstelldatum, ersteller, email) 
-        VALUE ('$_POST[POST_GERICHT_NAME]', '$_POST[POST_GERICHT_BESCHREIBUNG]', '$datestamp', '$_POST[POST_GERICHT_ERSTELLER]', '$_POST[POST_GERICHT_EMAIL]')";
+    /**
+     * controll values and store date
+     */
+    if(empty($_POST[POST_GERICHT_ERSTELLER]))
+        $_POST[POST_GERICHT_ERSTELLER] = "Anonym";
+
+    $datestamp = date("Y-m-d");
+
+    /**
+     * Security Measures
+     * mysqli_real_escape_string() escapes all strings that are passed
+     */
+
+
+    $name = mysqli_real_escape_string($link, $_POST[POST_GERICHT_NAME]);
+    $beschreibung = mysqli_real_escape_string($link, $_POST[POST_GERICHT_BESCHREIBUNG]);
+    $creator = mysqli_real_escape_string($link, $_POST[POST_GERICHT_ERSTELLER]);
+    $email = mysqli_real_escape_string($link, $_POST[POST_GERICHT_EMAIL]);
+
+    // disabled security
+    /*
+    $name = $_POST[POST_GERICHT_NAME];
+    $beschreibung = $_POST[POST_GERICHT_BESCHREIBUNG];
+    $creator = $_POST[POST_GERICHT_ERSTELLER];
+    $email = $_POST[POST_GERICHT_EMAIL];
+    */
+
+    /**
+     * Send data to database
+     * 1. Insert
+     * 2. store return to check if insertion was successfull
+     * 3. echo any occouring errors
+     * 4. close connection
+     */
+    $sql = "INSERT INTO wunschgerichte (gericht_name, gericht_beschreibung, ersteller_name, ersteller_mail, erstellungsdatum) 
+    VALUES ('$name', '$beschreibung', '$creator', '$email', '$datestamp')";
 
     $result = mysqli_query($link, $sql);
 
@@ -48,6 +64,7 @@ function createGericht() {
     mysqli_close($link);
 
 }
+
 
 
 ?>
@@ -78,29 +95,25 @@ function createGericht() {
         <section>
             <div class="col-3">
 
-                <form method="POST" class="set-width">
+                <form  action="wunschgericht.php" method="POST" class="set-width">
                     <fieldset>
                         <div class="formfield">
                             <input type="text" name="name" placeholder="Gericht" required>
                         </div>
                         <div class="formfield">
-                            <input type="text" name="description" placeholder="Beschreibung" required>
+                            <input type="text" name="beschreibung" placeholder="Beschreibung" required>
                         </div>
                         <div class="formfield">
-                            <input type="text" name="creator" placeholder="Name" >
+                            <input type="text" name="ersteller" placeholder="Name" >
                         </div>
                         <div class="formfield">
                             <input type="email" name="email" placeholder="Email Adresse">
                         </div>
 
-                        <input type="submit" name="anmeldung" value="Wunsch Abschicken" class="custom-button">
+                        <input type="submit" name="submit" value="Wunsch Abschicken" class="custom-button">
                     </fieldset>
                 </form>
 
-                <?php
-                if(isset($_POST[POST_GERICHT_NAME]))
-                    createGericht();
-                ?>
 
             </div>
         </section>
