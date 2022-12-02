@@ -4,7 +4,6 @@ const POST_GERICHT_BESCHREIBUNG = 'beschreibung';
 const POST_GERICHT_ERSTELLER = 'ersteller';
 const POST_GERICHT_EMAIL = 'email';
 
-
 if(isset($_POST['submit'])) {
 
     /**
@@ -29,43 +28,112 @@ if(isset($_POST['submit'])) {
      * Security Measures
      * mysqli_real_escape_string() escapes all strings that are passed
      */
-
-
     $name = mysqli_real_escape_string($link, $_POST[POST_GERICHT_NAME]);
     $beschreibung = mysqli_real_escape_string($link, $_POST[POST_GERICHT_BESCHREIBUNG]);
     $creator = mysqli_real_escape_string($link, $_POST[POST_GERICHT_ERSTELLER]);
     $email = mysqli_real_escape_string($link, $_POST[POST_GERICHT_EMAIL]);
 
-    // disabled security
-    /*
-    $name = $_POST[POST_GERICHT_NAME];
-    $beschreibung = $_POST[POST_GERICHT_BESCHREIBUNG];
-    $creator = $_POST[POST_GERICHT_ERSTELLER];
-    $email = $_POST[POST_GERICHT_EMAIL];
-    */
 
     /**
-     * Send data to database
-     * 1. Insert
-     * 2. store return to check if insertion was successfull
-     * 3. echo any occouring errors
-     * 4. close connection
+     * Functions that handel database operations
      */
-    $sql = "INSERT INTO wunschgerichte (gericht_name, gericht_beschreibung, ersteller_name, ersteller_mail, erstellungsdatum) 
-    VALUES ('$name', '$beschreibung', '$creator', '$email', '$datestamp')";
 
-    $result = mysqli_query($link, $sql);
 
-    if(!$result) {
-        echo "Error druing query!", mysqli_error($link);
+
+
+    function getPKersteller($ersteller_name) {
+
+        $link = mysqli_connect("localhost", "root", "root", "emensawerbeseite");
+
+        if(!$link) {
+            echo "Error during connection establishment:", mysqli_connect_error();
+            exit();
+        }
+
+        $sql = "SELECT id_ersteller AS 'id' FROM ersteller WHERE name = '$ersteller_name'";
+
+        $result = mysqli_query($link, $sql);
+
+        if(!$result) {
+            echo "Error druing query!", mysqli_error($link);
+        }
+
+        while($row = mysqli_fetch_assoc($result)) {
+            $results[] = $row;
+        }
+
+        mysqli_close($link);
+
+        return $results['0']['id'];
+
+
     }
 
-    //mysqli_free_result($result);
-    mysqli_close($link);
+    function createErsteller() {
 
+        global $creator, $email;
+
+        $link = mysqli_connect("localhost", "root", "root", "emensawerbeseite");
+
+        if(!$link) {
+            echo "Error during connection establishment:", mysqli_connect_error();
+            exit();
+        }
+
+        $sql = "INSERT INTO ersteller (name, email) VALUES
+                 ('$creator', '$email')";
+
+        $result = mysqli_query($link, $sql);
+
+
+
+        if(!$result) {
+            echo "Error druing query!", mysqli_error($link);
+        }
+
+        mysqli_close($link);
+    }
+
+    function insertGericht() {
+
+        global $name, $beschreibung, $datestamp, $creator;
+
+        $id = getPKersteller($creator);
+
+        $link = mysqli_connect("localhost", "root", "root", "emensawerbeseite");
+
+        if(!$link) {
+            echo "Error during connection establishment:", mysqli_connect_error();
+            exit();
+        }
+
+        /**
+         * Send data to database
+         * 1. Insert
+         * 2. store return to check if insertion was successfull
+         * 3. echo any occouring errors
+         * 4. close connection
+         */
+        $sql = "INSERT INTO wunschgerichte (gericht_name, beschreibung, erstelldatum, ersteller) 
+                VALUES ('$name', '$beschreibung', '$datestamp', '$id')";
+
+        $result = mysqli_query($link, $sql);
+
+        if(!$result) {
+            echo "Error druing query!", mysqli_error($link);
+        }
+
+        mysqli_close($link);
+
+    }
+
+
+
+    if(!getPKersteller($creator) > 1)
+        createErsteller();
+    
+    insertGericht();
 }
-
-
 
 ?>
 
