@@ -131,7 +131,7 @@ if(isset($_POST['submit'])) {
 
     if(!getPKersteller($creator) > 1)
         createErsteller();
-    
+
     insertGericht();
 }
 
