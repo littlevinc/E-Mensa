@@ -17,6 +17,7 @@
  <thead>
  <th>Name</th>
  <th>Interner Preis</th>
+
  </thead>
  <?php $__currentLoopData = $gerichte; $this->addLoop($__currentLoopData);$this->getFirstLoop();
  foreach($__currentLoopData as $gericht): $loop = $this->incrementLoopIndices();  ?>

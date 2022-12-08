@@ -12,6 +12,5 @@
  <?php else: ?>
  <p>Es wurde kein Wert übergeben</p>
  <?php endif; ?>
-
  </body>
 </html>

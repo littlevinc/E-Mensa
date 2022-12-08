@@ -25,7 +25,7 @@
                 <th>Gericht</th>
                 <th>Interne</th>
                 <th>Externe</th>
-
+                <th>Bilder</th>
             </tr>
 
             @foreach($gerichte as $gericht)
@@ -33,6 +33,11 @@
                 <td>{{ $gericht['name'] }} ><sub> {{$gericht['allergene']}} </sub></td>
                 <td>{{$gericht['preis_intern']}}</td>
                 <td>{{$gericht['preis_extern']}}</td>
+                @if(file_exists("/Users/kaifedin/Documents/University/semester_3/DBWT/E-Mensa/emensa/public/img/gerichte/" . $gericht['bildname']))
+                    <td><img src="/img/gerichte/{{$gericht['bildname']}}" alt="{{$gericht['bildname']}}" style="width:50px; height: 50px; object-fit:cover"></td>
+                @else
+                    <td><img src="/img/gerichte/00_image_missing.jpg" alt="Image Missing" style="width:50px; height: 50px; object-fit:cover"></td>
+                @endif
             </tr>
             @endforeach
         </table>

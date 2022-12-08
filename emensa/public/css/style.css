@@ -154,6 +154,13 @@ header{
     letter-spacing: 2px;
 }
 
+.account{
+    margin-right: 40px;
+    display: flex;
+    text-transform: uppercase;
+    justify-content: end;
+}
+
 
 
 nav{

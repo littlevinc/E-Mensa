@@ -167,23 +167,16 @@ function signupToFile($signup) : void{
         fwrite($file, $line);
         fclose($file);
 
-
     }
 
-
 }
-
-
-
 
 $formOutput = valNewsletter();
 //Check if there are any errors in$formOutput
 
-
 if(errorFree($formOutput['errors'])){
     signupToFile($formOutput['values']);
 }
-
 
 ?>
 

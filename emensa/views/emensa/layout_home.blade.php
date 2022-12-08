@@ -13,6 +13,7 @@
 </head>
 <body>
 {{-- Trying to include Navbar Did not Work--}}
+
 <nav>
     <!--
     <div class="logo"><img src="pictures/mensa-logo.png" alt="E-Mensa Logo" width="100px"></div>
@@ -25,9 +26,11 @@
         <li><a href="#kontakt">Kontakt</a></li>
         <li><a href="#wichtig">Wichtig für uns</a></li>
     </ul>
-    <div>
-
+    @if(isset($username))
+    <div class="account">
+        <p>({{$username}}) <a href="/abmeldung">ABMELDEN</a></p>
     </div>
+    @endif
 </nav>
 
 {{-- Header --}}

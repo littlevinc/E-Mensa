@@ -1,3 +1,4 @@
+@extends('emensa.layout_home')
 @section('navbar')
 <nav>
     <!--

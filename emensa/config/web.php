@@ -21,6 +21,8 @@ return array(
 
     // EMensa
     '/' => 'EmensaController@index',
-
+    '/anmeldung' => 'EmensaController@anmeldung',
+    '/anmeldung_verifizieren' => 'EmensaController@anmeldungVerifizieren',
+    '/abmeldung' => 'EmensaController@abmeldung',
 
 );

@@ -17,6 +17,7 @@
     <thead>
     <th>Name</th>
     <th>Interner Preis</th>
+
     </thead>
     @foreach($gerichte as $gericht)
         <tr>

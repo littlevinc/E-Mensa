@@ -2,17 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0ca279c-e4a0-4af4-971c-e875d9df1986" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../emensa/console.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../emensa/controllers/EmensaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../emensa/views/examples/m4_7a_queryparameter.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../emensa/views/examples/m4_7b_kategorie.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../emensa/views/examples/m4_7c_gerichte.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../emensa/views/examples/m4_7d_page_1.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../emensa/views/examples/m4_7d_page_2.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../emensa/views/examples/m4layout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emensa/models/benutzer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emensa/passwort.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emensa/public/img/gerichte/00_image_missing.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emensa/public/img/gerichte/01_bratkartoffel.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emensa/public/img/gerichte/03_bratkartoffel.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emensa/public/img/gerichte/04_tofu.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emensa/public/img/gerichte/06_lasagne.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emensa/public/img/gerichte/09_suppe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emensa/public/img/gerichte/10_forelle.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emensa/public/img/gerichte/11_soup.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emensa/public/img/gerichte/12_kassler.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emensa/public/img/gerichte/13_reibekuchen.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emensa/public/img/gerichte/15_pilze.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emensa/public/img/gerichte/17_broetchen.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emensa/public/img/gerichte/19_mousse.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emensa/public/img/gerichte/20_suppe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emensa/views/emensa/anmeldung.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../emensa/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../emensa/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../emensa/config/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../emensa/config/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../emensa/console.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../emensa/console.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../emensa/controllers/EmensaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../emensa/controllers/EmensaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../emensa/models/gericht.php" beforeDir="false" afterPath="$PROJECT_DIR$/../emensa/models/gericht.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../emensa/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/../emensa/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../emensa/storage/cache/emensa.home.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/../emensa/storage/cache/emensa.home.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../emensa/storage/cache/emensa.layout_home.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/../emensa/storage/cache/emensa.layout_home.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../emensa/views/emensa/components/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../emensa/views/emensa/components/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../emensa/views/emensa/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../emensa/views/emensa/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../emensa/views/emensa/layout_home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../emensa/views/emensa/layout_home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../emensa/views/examples/m4_7c_gerichte.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../emensa/views/examples/m4_7c_gerichte.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../meilensteine/m5/M5.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../meilensteine/m5/M5.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../werbeseite_m4/m4_editor.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../werbeseite_m4/m4_editor.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../werbeseite_m4/wunschgericht.php" beforeDir="false" afterPath="$PROJECT_DIR$/../werbeseite_m4/wunschgericht.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newsletter.php" beforeDir="false" afterPath="$PROJECT_DIR$/newsletter.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,6 +143,10 @@
       <workItem from="1668959213054" duration="3443000" />
       <workItem from="1669115579254" duration="1171000" />
       <workItem from="1669891858160" duration="1081000" />
+      <workItem from="1669994861492" duration="8000" />
+      <workItem from="1670236039826" duration="13000" />
+      <workItem from="1670236083560" duration="3435000" />
+      <workItem from="1670325028791" duration="998000" />
     </task>
     <servers />
   </component>

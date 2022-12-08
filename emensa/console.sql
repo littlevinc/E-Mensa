@@ -46,3 +46,48 @@ ALTER TABLE gericht_hat_allergen
 #A4.6 Eine Kombination aus gericht_id und
 # kategorie_id in gericht_hat_kategorie soll als Primärschlüssel dienen.
 # Ist da nicht das gleiche wie 4.1?
+
+
+#A5.1
+CREATE TABLE benutzer
+(
+    id INT8 PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(200) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    passwort VARCHAR(200) NOT NULL,
+    admin BOOLEAN NOT NULL DEFAULT FALSE,
+    anzahlfehler INT NOT NULL DEFAULT 0,
+    anzahlanmeldungen INT NOT NULL DEFAULT 0,
+    letzteanmeldung DATETIME,
+    letzterfehler DATETIME
+);
+
+INSERT INTO benutzer (name, email, passwort, admin) VALUES('admin', 'admin@gmail.com', '12ed4f6fb2bd6c8b4b7ebc6c25c6e165479ad080', true);
+
+use emensawerbeseite;
+SELECT COUNT(*) AS login FROM benutzer WHERE email='admin@gmail.com' AND passwort = '12ed4f6fb2bd6c8b4b7ebc6c25c6e165479ad080';
+
+
+#A5.2
+ALTER TABLE gericht ADD COLUMN bildname VARCHAR(200) DEFAULT (NULL);
+
+UPDATE gericht SET gericht.bildname = '01_bratkartoffel.jpg' WHERE id = 1;
+UPDATE gericht SET gericht.bildname = '03_bratkartoffel.jpg' WHERE id = 3;
+UPDATE gericht SET gericht.bildname = '04_tofu.jpg' WHERE id = 4;
+UPDATE gericht SET gericht.bildname = '00_image_missing.jpg' WHERE id = 5;
+UPDATE gericht SET gericht.bildname = '06_lasagne.jpg' WHERE id = 6;
+UPDATE gericht SET gericht.bildname = '00_image_missing.jpg' WHERE id = 7;
+UPDATE gericht SET gericht.bildname = '00_image_missing.jpg' WHERE id = 8;
+UPDATE gericht SET gericht.bildname = '09_suppe.jpg' WHERE id = 9;
+UPDATE gericht SET gericht.bildname = '10_forelle.jpg' WHERE id = 10;
+UPDATE gericht SET gericht.bildname = '11_soup.jpg' WHERE id = 11;
+UPDATE gericht SET gericht.bildname = '12_kassler.jpg' WHERE id = 12;
+UPDATE gericht SET gericht.bildname = '13_reibekuchen.jpg' WHERE id = 13;
+UPDATE gericht SET gericht.bildname = '00_image_missing.jpg' WHERE id = 14;
+UPDATE gericht SET gericht.bildname = '15_pilze.jpg' WHERE id = 15;
+UPDATE gericht SET gericht.bildname = '00_image_missing.jpg' WHERE id = 16;
+UPDATE gericht SET gericht.bildname = '17_broetchen.jpg' WHERE id = 17;
+UPDATE gericht SET gericht.bildname = '00_image_missing.jpg' WHERE id = 18;
+UPDATE gericht SET gericht.bildname = '19_mousse.jpg' WHERE id = 19;
+UPDATE gericht SET gericht.bildname = '20_suppe.jpg' WHERE id = 20;
+UPDATE gericht SET gericht.bildname = '00_image_missing.jpg' WHERE id = 21;

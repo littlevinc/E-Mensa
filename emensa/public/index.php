@@ -23,6 +23,10 @@ try {
 
 use eftec\bladeone\BladeOne;
 
+use Monolog\Level;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
 /* Routing Script for PHP Dev Server */
 $verbosity = VERBOSITY;
 if (preg_match('/\.(?:css|js|png|jpg|jpeg|gif)$/', $_SERVER["REQUEST_URI"])) {
@@ -91,6 +95,9 @@ class FrontController
 
     public static function handleRequest($url, $method = 'GET', $verbosity = 0, $configPath = CONFIG_WEBROUTES)
     {
+        session_name("emensa");
+        session_start();
+
 
         if (!class_exists('eftec\bladeone\BladeOne'))
             // #ERROR
@@ -239,6 +246,7 @@ class FrontController
         }
         return glob($path . '*Controller.php');
     }
+
 }
 
 function connectdb()
@@ -275,4 +283,13 @@ function view($viewname, $viewargs = array())
     $blade = new BladeOne($views, $cache, BladeOne::MODE_DEBUG);
 
     return $blade->run($viewname, $viewargs);
+}
+
+function logger (){
+
+    $log = new Logger('name');
+    $log->pushHandler(new StreamHandler('../storage/logs/log.txt', Level::Info));
+    //$log->pushHandler(new StreamHandler('../storage/logs/log.txt', Level::Warning));
+
+    return $log;
 }

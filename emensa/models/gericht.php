@@ -43,7 +43,7 @@ function db_gericht_uebersicht(){
 
     $link = connectdb();
 
-    $sql = "SELECT id, name, preis_intern, preis_extern, GROUP_CONCAT(code) AS 'allergene'  FROM gericht G LEFT JOIN gericht_hat_allergen K ON G.id = K.gericht_id GROUP BY name ORDER BY id LIMIT 5";
+    $sql = "SELECT id, name, preis_intern, preis_extern,bildname, GROUP_CONCAT(code) AS 'allergene'  FROM gericht G LEFT JOIN gericht_hat_allergen K ON G.id = K.gericht_id GROUP BY name ORDER BY id LIMIT 5";
     $result = mysqli_query($link, $sql);
 
     $data = mysqli_fetch_all($result, MYSQLI_BOTH);
