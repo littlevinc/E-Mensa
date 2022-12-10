@@ -98,7 +98,6 @@ class FrontController
         session_name("emensa");
         session_start();
 
-
         if (!class_exists('eftec\bladeone\BladeOne'))
             // #ERROR
             FrontController::showErrorMessage("

@@ -32,6 +32,15 @@ ALTER TABLE gericht_hat_kategorie
 # wenn 1) dieser keine Gerichte zugeordnet sind und
 # 2) diese keine Kindkategorien besitzt.
 
+ALTER TABLE gericht_hat_kategorie
+    ADD FOREIGN KEY (kategorie_id) REFERENCES kategorie(id)
+        ON UPDATE CASCADE ON DELETE RESTRICT;
+
+/* Aufgabe 4. Teilaufgabe 4) Teil 2. */
+ALTER TABLE kategorie
+    ADD FOREIGN KEY (eltern_id) REFERENCES kategorie(id)
+        ON UPDATE CASCADE ON DELETE RESTRICT;
+
 #A4.5 Wird der Code eines Allergens verändert, so sich
 # dieser Code automatisch in den referenzierenden Datensätzen.
 # --> Alle Children von Allergens erhalten ein ON UPDATE CASCADE?
@@ -91,3 +100,40 @@ UPDATE gericht SET gericht.bildname = '00_image_missing.jpg' WHERE id = 18;
 UPDATE gericht SET gericht.bildname = '19_mousse.jpg' WHERE id = 19;
 UPDATE gericht SET gericht.bildname = '20_suppe.jpg' WHERE id = 20;
 UPDATE gericht SET gericht.bildname = '00_image_missing.jpg' WHERE id = 21;
+
+
+#M5.4
+#A
+CREATE VIEW view_suppengerichte AS
+    SELECT * FROM gericht
+             WHERE name LIKE '%suppe%';
+
+SELECT * FROM view_suppengerichte;
+
+#B
+CREATE VIEW view_anmeldungen AS
+    SELECT name, anzahlanmeldungen FROM benutzer
+    ORDER BY anzahlanmeldungen DESC;
+
+SELECT * FROM view_anmeldungen;
+
+#C
+CREATE VIEW view_gerichte_vegetarisch AS
+    SELECT id, name AS gerichtname FROM gericht WHERE vegetarisch = 1;
+
+CREATE VIEW view_kategoriegerichte_vegetarisch AS
+    SELECT  k.name AS kategoriename, gerichtname
+    FROM view_gerichte_vegetarisch as vgv
+    JOIN gericht_hat_kategorie ghk ON ghk.gericht_id = vgv.id
+    RIGHT JOIN kategorie k ON ghk.kategorie_id=k.id;
+
+SELECT * FROM view_kategoriegerichte_vegetarisch;
+SELECT * FROM view_gerichte_vegetarisch;
+
+#M5.5
+CREATE PROCEDURE procedure_increment_logins(IN b_id INTEGER)
+BEGIN
+    UPDATE benutzer SET anzahlanmeldungen = anzahlanmeldungen +1 WHERE id = b_id;
+END;
+
+CALL procedure_increment_logins(1);

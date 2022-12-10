@@ -5,6 +5,7 @@ class Benutzer{
     protected ?mysqli $link;
     protected String $mail;
     protected String $password;
+    protected int $id;
 
     function __construct(String $mail, String $password){
         $this->link = connectdb();
@@ -12,12 +13,27 @@ class Benutzer{
         $this->password = $password;
     }
 
+    public function startTransaction(){
+        $this->link->begin_transaction();
+    }
+
+    public function commit(){
+        $this->link->commit();
+    }
+
     public function login(){
         $sql = "SELECT COUNT(*) AS 'login' FROM benutzer WHERE email= '$this->mail' AND passwort = '$this->password'";
         $result = mysqli_query($this->link, $sql);
-
         $data = mysqli_fetch_all($result, MYSQLI_BOTH);
-        return (bool) $data[0]['login'];
+
+        $loggedIn = (bool) $data[0]['login'];
+        if($loggedIn){
+            $sql = "SELECT id FROM benutzer WHERE email= '$this->mail' AND passwort = '$this->password'";
+            $result = mysqli_query($this->link, $sql);
+            $data = mysqli_fetch_all($result, MYSQLI_BOTH);
+            $this->id = $data[0]['id'];
+        }
+        return $loggedIn;
 }
 
     public function getName(){
@@ -29,7 +45,9 @@ class Benutzer{
     }
 
     public function anzahlanmeldungen_update(){
-        $sql = "UPDATE benutzer SET anzahlanmeldungen=anzahlanmeldungen + 1 WHERE email = '$this->mail'";
+        //$sql = "UPDATE benutzer SET anzahlanmeldungen=anzahlanmeldungen + 1 WHERE email = '$this->mail'";
+
+        $sql = "CALL procedure_increment_logins($this->id)";
         $result = mysqli_query($this->link, $sql);
 
         //Keine fetch all des results da wir nix returnen
@@ -38,7 +56,7 @@ class Benutzer{
         }
     }
 
-    public function sletzteanmeldung_update(){
+    public function letzteanmeldung_update(){
         $sql = "UPDATE benutzer SET letzteanmeldung=CURRENT_DATE() WHERE email = '$this->mail'";
         $result = mysqli_query($this->link, $sql);
 
@@ -68,11 +86,14 @@ class Benutzer{
         }
     }
 
+
     public function closeConnection(){
         mysqli_close($this->link);
 }
 }
 
+
+/*
 function db_benutzer_login(String $mail, String $password){
 
 
@@ -146,4 +167,4 @@ function db_benutzer_name(String $mail){
 
     return $data[0];
 }
-
+*/

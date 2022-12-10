@@ -44,9 +44,9 @@ class EmensaController
         $email = $request->query['email'];
         $password = $salt . $request->query['password'];
         $hash = sha1($password);
-
-        mysqli::transaction_start();
         $user = new Benutzer($email, $hash);
+        $user->startTransaction();
+
         //$data = db_benutzer_login($email, $hash);
         $loggedIn = $user->login();
         if($loggedIn){
@@ -70,7 +70,7 @@ class EmensaController
             unset($_SESSION['anmeldungError']);
             $_SESSION['login_ok'] = true;
 
-            mysqli::commit();
+            $user->commit();
             $user->closeConnection();
             header('Location:/');
         }else{
@@ -88,7 +88,7 @@ class EmensaController
 
             $_SESSION['anmeldungError'] = "E-Mail Adresse & Passwort stimmen nicht überein";
 
-            mysqli::commit();
+            $user->commit();
             $user->closeConnection();
             header('Location:/anmeldung');
         }
