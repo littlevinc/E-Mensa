@@ -83,7 +83,6 @@ class EmensaController
             */
 
             $user->anzahlfehler_update();
-
             $user->letzterfehler_update();
 
             $_SESSION['anmeldungError'] = "E-Mail Adresse & Passwort stimmen nicht überein";
