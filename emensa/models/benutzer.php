@@ -2,7 +2,7 @@
 
 class Benutzer{
 
-    protected ?mysqli $link;
+    protected mysqli $link;
     protected String $mail;
     protected String $password;
     protected int $id;

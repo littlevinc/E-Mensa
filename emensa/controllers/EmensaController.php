@@ -47,19 +47,12 @@ class EmensaController
         $user = new Benutzer($email, $hash);
         $user->startTransaction();
 
-        //$data = db_benutzer_login($email, $hash);
         $loggedIn = $user->login();
         if($loggedIn){
-
-            /*
-            db_benutzer_anzahlanmeldungen_update($email);
-            db_benutzer_letzteanmeldung_update($email);
-            */
 
             $user->anzahlanmeldungen_update();
             $user->letzteanmeldung_update();
 
-            //$username = db_benutzer_name($email)['name'];
             $username = $user->getName();
 
             $_SESSION['loggedUser'] = $username;
@@ -77,10 +70,6 @@ class EmensaController
             $log = logger();
             $log->warning('Anmeldung Fail');
 
-            /*
-            db_benutzer_anzahlfehler_update($email);
-            db_benutzer_letzterfehler_update($email);
-            */
 
             $user->anzahlfehler_update();
             $user->letzterfehler_update();
