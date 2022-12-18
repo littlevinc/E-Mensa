@@ -1,18 +1,32 @@
-@section('navbar')
-    <nav>
-        <!--
-        <div class="logo"><img src="pictures/mensa-logo.png" alt="E-Mensa Logo" width="100px"></div>
-        -->
-        <div class="logo-text">E Mensa</div>
-        <ul>
-            <li><a href="#ankuendigungen">Ankündigung</a></li>
-            <li><a href="#speisen">Speisen</a></li>
-            <li><a href="#zahlen">Zahlen</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-            <li><a href="#wichtig">Wichtig für uns</a></li>
-        </ul>
-        <div>
+<?php
+    session_start();
 
-        </div>
-    </nav>
-@endsection
+    if(!isset($_SESSION['id'])) {
+        $_SESSION['id'] = 'lukes session';
+    } else {
+        echo $_SESSION['id'];
+    }
+
+?>
+
+
+<nav>
+    <div class="logo-text">
+        <a href="/">
+            E Mensa
+        </a>
+    </div>
+
+    <ul>
+        <li><a href="#ankuendigungen">Ankündigung</a></li>
+        <li><a href="#speisen">Speisen</a></li>
+        <li><a href="#zahlen">Zahlen</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#wichtig">Wichtig für uns</a></li>
+        <li><a href="/login">Anmelden</a></li>
+    </ul>
+
+    <div>
+
+    </div>
+</nav>

@@ -13,6 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+/*
 Route::get('/', function () {
-    return view('home');
+    return view(\App\Http\Controllers\Gerichte::class, 'getGerichte');
 });
+
+*/
+
+Route::get('/', [\App\Http\Controllers\Gerichte::class, 'getGerichte']);
+
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+
+
+
+

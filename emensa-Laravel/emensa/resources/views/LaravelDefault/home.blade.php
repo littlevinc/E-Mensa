@@ -1,17 +1,22 @@
-@extends('layout')
+@extends('LaravelDefault.layout')
 
 
 @section('header')
     <header>
-        <img src="/img/homepage-header.webp" alt="homepage header mensa" width = "50%">
+        <img src="/img/homepage-header.webp" alt="homepage header mensa" width="50%">
     </header>
 @endsection
 
 @section('introduction')
     <h2 id="ankuendigungen">Bald gibt es Essen auch online!</h2>
     <section>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem fuga ipsa iusto non obcaecati rem, sunt vitae! Accusamus deleniti deserunt dolorem dolores molestiae neque optio possimus reiciendis? Neque, sit ullam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad atque cum, cumque deserunt distinctio dolorem ex quis,
-            quod saepe tempore temporibus vitae? Beatae esse est placeat quaerat ullam vel, voluptatum? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aperiam architecto assumenda aut cupiditate ex exercitationem fugit laborum maxime modi non omnis qui rerum sint sit ullam velit, vitae voluptatum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem fuga ipsa iusto non obcaecati rem,
+            sunt vitae! Accusamus deleniti deserunt dolorem dolores molestiae neque optio possimus reiciendis? Neque,
+            sit ullam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad atque cum, cumque deserunt distinctio
+            dolorem ex quis,
+            quod saepe tempore temporibus vitae? Beatae esse est placeat quaerat ullam vel, voluptatum? Lorem ipsum
+            dolor sit amet, consectetur adipisicing elit. Alias aperiam architecto assumenda aut cupiditate ex
+            exercitationem fugit laborum maxime modi non omnis qui rerum sint sit ullam velit, vitae voluptatum.</p>
     </section>
 @endsection
 
@@ -54,7 +59,7 @@
         </div>
     </section>
 
-    <h2 id="kontakt" >Interesse geweckt, Wir informieren Sie</h2>
+    <h2 id="kontakt">Interesse geweckt, Wir informieren Sie</h2>
     <section>
         {{-- Wie sollte sowas hier richtig integriert werden? --}}
         {{-- php include ("newsletter.php"); --}}
