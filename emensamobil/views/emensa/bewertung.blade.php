@@ -29,18 +29,16 @@
 
 <section>
 
-    @if(isset($_GET['id']))
-
+    @if(isset($_GET['id']) && isset($_GET['show']))
         @foreach($gerichte as $bild)
             @if($bild['id'] == $_GET['id'])
-                @if(file_exists("/Users/luke/Desktop/GitHub/E-Mensa/emensamobil/public/img/gerichte/" . $gericht['bildname']))
-                    <td><img src="/img/gerichte/{{$bild['bildname']}}" alt="{{$bild['bildname']}}" style="width:50px; height: 50px; object-fit:cover"></td>
+                @if(file_exists("/Users/luke/Desktop/GitHub/E-Mensa/emensamobil/public/img/gerichte/" . $bild['bildname']))
+                    <td><img src="/img/gerichte/{{$bild['bildname']}}" alt="{{$bild['bildname']}}" style="width:100px; height: 100px; object-fit:cover"></td>
                 @else
-                    <td><img src="/img/gerichte/00_image_missing.jpg" alt="Image Missing" style="width:50px; height: 50px; object-fit:cover"></td>
+                    <td><img src="/img/gerichte/00_image_missing.jpg" alt="Image Missing" style="width:100px; height: 100px; object-fit:cover"></td>
                 @endif
             @endif
         @endforeach
-
     @endif
 
     @if(isset($error))

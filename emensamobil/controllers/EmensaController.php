@@ -134,7 +134,7 @@ class EmensaController
             "gericht_id" => (int)$request->query['gericht'],
             "bemerkung" => $bemerkung_secure,
             "sterne" => (int)$request->query['sterne'],
-            "benutzer" => (string)$_SESSION['loggedUser'] ? : "not logged in"
+            "benutzer" => "Luke"
         ];
 
         db_insert_bewertung($review);
