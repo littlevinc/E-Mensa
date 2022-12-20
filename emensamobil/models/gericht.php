@@ -50,3 +50,17 @@ function db_gericht_uebersicht(){
     mysqli_close($link);
     return $data;
 }
+
+function db_current_gerichte()
+{
+
+    $link = connectdb();
+
+    $sql = "SELECT id, name, bildname FROM gericht";
+    $resul = mysqli_query($link, $sql);
+
+    $data = mysqli_fetch_all($resul, MYSQLI_BOTH);
+    mysqli_close($link);
+
+    return $data;
+}

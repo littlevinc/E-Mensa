@@ -24,5 +24,8 @@ return array(
     '/anmeldung' => 'EmensaController@anmeldung',
     '/anmeldung_verifizieren' => 'EmensaController@anmeldungVerifizieren',
     '/abmeldung' => 'EmensaController@abmeldung',
+    '/bewertung' => 'EmensaController@bewertung',
+    '/bewertung_store' => 'EmensaController@bewertung_verifizieren'
 
 );
+

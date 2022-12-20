@@ -30,10 +30,15 @@
 
             @foreach($gerichte as $gericht)
             <tr>
-                <td>{{ $gericht['name'] }} ><sub> {{$gericht['allergene']}} </sub></td>
+                @if(!isset($_SESSION['loggedUser']))
+                    <td><a href="/bewertung?id={{$gericht['id']}}">{{ $gericht['name'] }}</a> <sub> {{$gericht['allergene']}} </sub></td>
+                @else
+                    <td>{{ $gericht['name'] }} <sub> {{$gericht['allergene']}} </sub></td>
+                @endif
+
                 <td>{{$gericht['preis_intern']}}</td>
                 <td>{{$gericht['preis_extern']}}</td>
-                @if(file_exists("/Users/kaifedin/Documents/University/semester_3/DBWT/E-Mensa/emensa/public/img/gerichte/" . $gericht['bildname']))
+                @if(file_exists("/Users/luke/Desktop/GitHub/E-Mensa/emensamobil/public/img/gerichte/" . $gericht['bildname']))
                     <td><img src="/img/gerichte/{{$gericht['bildname']}}" alt="{{$gericht['bildname']}}" style="width:50px; height: 50px; object-fit:cover"></td>
                 @else
                     <td><img src="/img/gerichte/00_image_missing.jpg" alt="Image Missing" style="width:50px; height: 50px; object-fit:cover"></td>
@@ -82,7 +87,7 @@
     </section>
 
     <section>
-        <a href="/wunschgericht.php" class="custom-button">Gericht vorschlagen</a>
+        <a href="/anmeldung" class="custom-button">Anmelden</a>
         <h3 id="greetings">Wir freuen uns auf Ihren Besuch</h3>
     </section>
 

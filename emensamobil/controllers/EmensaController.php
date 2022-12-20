@@ -3,6 +3,8 @@
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/gericht.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/benutzer.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/../models/bewertung.php');
+
 
 class EmensaController
 {
@@ -92,6 +94,55 @@ class EmensaController
         unset($_SESSION['loggedUser']);
 
         header('Location:/');
+    }
+
+    public function bewertung(RequestData $request) {
+
+        $gerichte = db_gericht_uebersicht();
+
+        if(isset($_SESSION['loggedUser'])) {
+            return view('emensa.anmeldung');
+        } else {
+            return view('emensa.bewertung', [
+                'gerichte' => db_current_gerichte(),
+                'bewertungen' => db_list_bewertungen()
+            ]);
+        }
+
+    }
+
+    public function bewertung_verifizieren(RequestData $request) {
+
+        if( strlen($request->query['bemerkung']) < 5) {
+            return view('emensa.bewertung', [
+                'gerichte' => db_current_gerichte(),
+                'error' => 'Die Bemerkung muss aus mindestens 5 Zeichen bestehen!'
+            ]);
+        }
+
+        /*
+         * Escape string bemerkung to prevent sql injection and store other val
+         */
+        $link = connectdb();
+        $bemerkung_secure = mysqli_escape_string($link, $request->query['bemerkung']);
+        mysqli_close($link);
+
+        /**
+         * Store data in array which is passed by reference to the insert function
+         */
+        $review = [
+            "gericht_id" => (int)$request->query['gericht'],
+            "bemerkung" => $bemerkung_secure,
+            "sterne" => (int)$request->query['sterne'],
+            "benutzer" => (string)$_SESSION['loggedUser'] ? : "not logged in"
+        ];
+
+        db_insert_bewertung($review);
+
+        return view('emensa.home', [
+            'gerichte' => db_gericht_uebersicht()
+        ]);
+
     }
 
 
