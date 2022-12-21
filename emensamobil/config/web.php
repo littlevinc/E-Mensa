@@ -26,7 +26,9 @@ return array(
     '/abmeldung' => 'EmensaController@abmeldung',
     '/bewertung' => 'EmensaController@bewertung',
     '/bewertung_store' => 'EmensaController@bewertung_verifizieren',
-    '/meinebewertungen' => 'EmensaController@user_bewertungen'
+    '/meinebewertungen' => 'EmensaController@user_bewertungen',
+    '/delete_review' => 'EmensaController@bewertung_delete'
+
 
 );
 

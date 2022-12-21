@@ -34,6 +34,7 @@
             <th>Bemerkung</th>
             <th>Sterne</th>
             <th>Bewertungszeitpunkt</th>
+            <th>Löschen</th>
         </tr>
 
         @foreach($bewertungen as $bewertung)
@@ -42,6 +43,7 @@
                 <td>{{ $bewertung['bemerkung'] }}</td>
                 <td>{{ $bewertung['sterne'] }}</td>
                 <td>{{ $bewertung['bewertungszeitpunkt'] }}</td>
+                <td><a href="/delete_review?id={{ $bewertung['idBewertung'] }}">Löschen</a></td>
             </tr>
         @endforeach
 

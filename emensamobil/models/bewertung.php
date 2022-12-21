@@ -39,7 +39,7 @@ function db_list_bewertungen_user($user) {
     $link = connectdb();
     $id_user = db_user_to_id($user);
 
-    $sql = "SELECT G.name, B.bemerkung, B.sterne, B.bewertungszeitpunkt FROM bewertung B JOIN gericht G ON (B.gericht_id = G.id) WHERE B.benutzer_id = $id_user ORDER BY B.bewertungszeitpunkt";
+    $sql = "SELECT B.idBewertung, G.name, B.bemerkung, B.sterne, B.bewertungszeitpunkt FROM bewertung B JOIN gericht G ON (B.gericht_id = G.id) WHERE B.benutzer_id = $id_user ORDER BY B.bewertungszeitpunkt";
     $result = mysqli_query($link, $sql);
 
     $data = mysqli_fetch_all($result, MYSQLI_BOTH);
@@ -59,6 +59,18 @@ function db_user_to_id($user) {
     mysqli_close($link);
 
     return $data[0]['id'];
+
+}
+
+function db_delete_review($id) {
+
+    $link = connectdb();
+
+    $sql = "DELETE FROM bewertung WHERE idBewertung = $id";
+    $result = mysqli_query($link, $sql);
+
+    mysqli_close($link);
+
 
 }
 

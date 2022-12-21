@@ -158,5 +158,20 @@ class EmensaController
 
     }
 
+    public function bewertung_delete(RequestData $request) {
+
+        db_delete_review($request->query['id']);
+        return view('emensa.meinebewertung', [
+            'bewertungen' => db_list_bewertungen_user('Luke')
+        ]);
+
+    }
+
+    public function bewertung_hervorheben(RequestData $request) {
+        
+    }
+
+
+
 
 }
