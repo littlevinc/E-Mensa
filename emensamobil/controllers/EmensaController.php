@@ -113,6 +113,9 @@ class EmensaController
 
     public function bewertung_verifizieren(RequestData $request) {
 
+        /**
+         * Validate lenght of bemerkung to be larger than 5
+         */
         if( strlen($request->query['bemerkung']) < 5) {
             return view('emensa.bewertung', [
                 'gerichte' => db_current_gerichte(),
@@ -141,6 +144,16 @@ class EmensaController
 
         return view('emensa.home', [
             'gerichte' => db_gericht_uebersicht()
+        ]);
+
+    }
+
+    public function user_bewertungen(RequestData $request) {
+
+        return view('emensa.meinebewertung', [
+            'bewertungen' => db_list_bewertungen_user('Luke'),
+            'user' => 'Luke'
+
         ]);
 
     }

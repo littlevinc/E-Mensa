@@ -26,13 +26,13 @@
         <li><a href="#wichtig">Wichtig für uns</a></li>
     </ul>
 </nav>
-<h2>Anmeldung</h2>
+<h2 style="margin-top: 150px">Anmeldung</h2>
 
 <section>
     @if(isset($error))
         <p>Fehler? {{$error}}</p>
     @endif
-    <form action="/anmeldung_verifizieren" method="POST">
+    <form action="/anmeldung_verifizieren" method="POST" style="min-width:400px; margin-top:25px;">
         <fieldset>
             <div class="formfield">
                 <input type="email" placeholder="E-Mail" name="email" required>

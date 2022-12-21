@@ -39,7 +39,7 @@ function db_list_bewertungen_user($user) {
     $link = connectdb();
     $id_user = db_user_to_id($user);
 
-    $sql = "SELECT G.name, B.bemerkung, B.sterne, B.bewertungszeitpunkt FROM bewertung B JOIN gericht G ON (B.gericht_id = G.id) WHERE B.benutzer_id = $id_user ORDER BY B.bewertungszeitpunkt LIMIT 30";
+    $sql = "SELECT G.name, B.bemerkung, B.sterne, B.bewertungszeitpunkt FROM bewertung B JOIN gericht G ON (B.gericht_id = G.id) WHERE B.benutzer_id = $id_user ORDER BY B.bewertungszeitpunkt";
     $result = mysqli_query($link, $sql);
 
     $data = mysqli_fetch_all($result, MYSQLI_BOTH);

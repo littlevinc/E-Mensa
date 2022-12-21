@@ -172,7 +172,7 @@ nav{
 nav ul{
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 0.75fr);
     padding: 0px;
 
 }
