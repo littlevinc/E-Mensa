@@ -25,7 +25,7 @@ function db_list_bewertungen() {
 
     $link = connectdb();
 
-    $sql = "SELECT G.name, B.bemerkung, B.sterne, B.bewertungszeitpunkt FROM bewertung B JOIN gericht G ON (B.gericht_id = G.id) ORDER BY B.bewertungszeitpunkt LIMIT 30";
+    $sql = "SELECT B.idBewertung, G.name, B.bemerkung, B.sterne, B.bewertungszeitpunkt, B.hervorgehoben FROM bewertung B JOIN gericht G ON (B.gericht_id = G.id) ORDER BY B.bewertungszeitpunkt LIMIT 30";
     $result = mysqli_query($link, $sql);
 
     $data = mysqli_fetch_all($result, MYSQLI_BOTH);
@@ -71,6 +71,33 @@ function db_delete_review($id) {
 
     mysqli_close($link);
 
+
+
+
+}
+
+function db_change_visibility($id) {
+
+    $link = connectdb();
+    $myid = (int)$id;
+
+    // TODO: Query ändert die gesammte Spalte und nicht nur ein Feld
+    $sql = "UPDATE bewertung SET hervorgehoben = NOT hervorgehoben WHERE idBewertung = $myid";
+    $result = mysqli_query($link, $sql);
+
+    mysqli_close($link);
+
+}
+
+function db_show_hervorgehoben() {
+    $link = connectdb();
+
+    $sql = "SELECT * FROM bewertung B JOIN gericht G ON (B.gericht_id = G.id) WHERE hervorgehoben = TRUE";
+    $querry = mysqli_query($link, $sql);
+    $data = mysqli_fetch_all($querry, MYSQLI_BOTH);
+
+    mysqli_close($link);
+    return $data;
 
 }
 

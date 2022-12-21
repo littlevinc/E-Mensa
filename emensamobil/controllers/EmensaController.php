@@ -23,7 +23,8 @@ class EmensaController
         return view('emensa.home', [
             'rd' => $request,
             'gerichte' => $gerichte,
-            'username' => $username
+            'username' => $username,
+            'bewertungen' => db_show_hervorgehoben()
         ]);
 
 
@@ -42,12 +43,13 @@ class EmensaController
 
     public function anmeldungVerifizieren(RequestData $request){
 
-        $salt = 'lbkf';
+        //$salt = 'lbkf';
         $email = $request->query['email'];
-        $password = $salt . $request->query['password'];
+        $password = $request->query['password'];
         $hash = sha1($password);
         $user = new Benutzer($email, $hash);
         $user->startTransaction();
+
 
         $loggedIn = $user->login();
         if($loggedIn){
@@ -58,6 +60,7 @@ class EmensaController
             $username = $user->getName();
 
             $_SESSION['loggedUser'] = $username;
+            $_SESSION['admin'] = true; //TODO: implement correct setting of admin role
 
             $log = logger();
             $log->info('Anmeldung Success: ' . $username);
@@ -100,7 +103,8 @@ class EmensaController
 
         $gerichte = db_gericht_uebersicht();
 
-        if(isset($_SESSION['loggedUser'])) {
+        // TODO: Abfrage ändern
+        if(!isset($_SESSION['loggedUser'])) {
             return view('emensa.anmeldung');
         } else {
             return view('emensa.bewertung', [
@@ -142,17 +146,22 @@ class EmensaController
 
         db_insert_bewertung($review);
 
-        return view('emensa.home', [
-            'gerichte' => db_gericht_uebersicht()
+        return view('emensa.bewertung', [
+            'gerichte' => db_gericht_uebersicht(),
+            'bewertungen' => db_list_bewertungen()
         ]);
 
     }
 
     public function user_bewertungen(RequestData $request) {
 
+        // redirect if user is not logged in
+        if(!isset($_SESSION['loggedUser']))
+            return view('emensa.anmeldung');
+
         return view('emensa.meinebewertung', [
-            'bewertungen' => db_list_bewertungen_user('Luke'),
-            'user' => 'Luke'
+            'bewertungen' => db_list_bewertungen_user($_SESSION['loggedUser']),
+            'user' => $_SESSION['loggedUser']
 
         ]);
 
@@ -160,15 +169,26 @@ class EmensaController
 
     public function bewertung_delete(RequestData $request) {
 
+        // redirect if user is not logged in
+        if(!isset($_SESSION['loggedUser']))
+            return view('emensa.anmeldung');
+
         db_delete_review($request->query['id']);
         return view('emensa.meinebewertung', [
-            'bewertungen' => db_list_bewertungen_user('Luke')
+            'bewertungen' => db_list_bewertungen_user($_SESSION['loggedUser'])
         ]);
 
     }
 
     public function bewertung_hervorheben(RequestData $request) {
-        
+
+
+        db_change_visibility($request->query['id']);
+        return view('emensa.bewertung', [
+            'gerichte' => db_current_gerichte(),
+            'bewertungen' => db_list_bewertungen()
+        ]);
+
     }
 
 

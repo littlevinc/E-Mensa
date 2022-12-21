@@ -25,7 +25,7 @@
 </nav>
 
 
-<h2 style="margin-top: 100px">Bewertungen für {{ $user }}</h2>
+<h2 style="margin-top: 100px">Bewertungen von {{ $user }}</h2>
 <section>
 
     <table class="flex-table" style="min-width: 700px">

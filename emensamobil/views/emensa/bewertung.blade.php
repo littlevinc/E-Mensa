@@ -87,12 +87,16 @@
 <h2 style="margin-top: 100px">Vorherige Bewertungen</h2>
 <section>
 
-    <table class="flex-table" style="min-width: 700px">
+    <table class="flex-table" style="min-width: 200px">
         <tr>
             <th style="max-width: 400px">Gericht</th>
             <th>Bemerkung</th>
             <th>Sterne</th>
             <th>Bewertungszeitpunkt</th>
+            @if($_SESSION['admin'])
+                <th>Hervorgehoben</th>
+                <th>Darstellung Ändern</th>
+            @endif
         </tr>
 
         @foreach($bewertungen as $bewertung)
@@ -101,6 +105,11 @@
                 <td>{{ $bewertung['bemerkung'] }}</td>
                 <td>{{ $bewertung['sterne'] }}</td>
                 <td>{{ $bewertung['bewertungszeitpunkt'] }}</td>
+
+                @if($_SESSION['admin'])
+                    <td>@if($bewertung['hervorgehoben']) <p style="color:green;text-align: center;">True</p> @else <p style="color:red;text-align:center;">False</p> @endif</td>
+                    <td><a href="/change_visibility?id={{ $bewertung['idBewertung']}} ">Ändern</a></td>
+                @endif
             </tr>
         @endforeach
 

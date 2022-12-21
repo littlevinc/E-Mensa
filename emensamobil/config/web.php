@@ -27,7 +27,8 @@ return array(
     '/bewertung' => 'EmensaController@bewertung',
     '/bewertung_store' => 'EmensaController@bewertung_verifizieren',
     '/meinebewertungen' => 'EmensaController@user_bewertungen',
-    '/delete_review' => 'EmensaController@bewertung_delete'
+    '/delete_review' => 'EmensaController@bewertung_delete',
+    '/change_visibility' => 'EmensaController@bewertung_hervorheben'
 
 
 );

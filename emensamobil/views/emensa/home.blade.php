@@ -30,7 +30,7 @@
 
             @foreach($gerichte as $gericht)
             <tr>
-                @if(!isset($_SESSION['loggedUser']))
+                @if(isset($_SESSION['loggedUser']))
                     <td><a href="/bewertung?id={{$gericht['id']}}">{{ $gericht['name'] }}</a> <sub> {{$gericht['allergene']}} </sub></td>
                 @else
                     <td>{{ $gericht['name'] }} <sub> {{$gericht['allergene']}} </sub></td>
@@ -69,6 +69,31 @@
         {{-- Wie sollte sowas hier richtig integriert werden? --}}
         {{-- php include ("newsletter.php"); --}}
     </section>
+
+    <h2>Ihre Bewertungen</h2>
+    <section>
+
+        <table class="flex-table" style="min-width: 700px">
+            <tr>
+                <th style="max-width: 400px">Gericht</th>
+                <th>Bemerkung</th>
+                <th>Sterne</th>
+
+            </tr>
+
+            @foreach($bewertungen as $bewertung)
+                <tr>
+                    <td style="text-align: center">{{ $bewertung['name'] }}</td>
+                    <td>{{ $bewertung['bemerkung'] }}</td>
+                    <td>{{ $bewertung['sterne'] }}</td>
+                </tr>
+            @endforeach
+
+
+        </table>
+
+    </section>
+
 
     <h2 id="wichtig">Das ist uns wichtig</h2>
     <section class="col-3">
