@@ -137,3 +137,16 @@ BEGIN
 END;
 
 CALL procedure_increment_logins(1);
+
+# M6
+CREATE TABLE bewertung (
+                           idBewertung INT8 PRIMARY KEY AUTO_INCREMENT,
+                           gericht_id TINYINT,
+                           benutzer_id INT8,
+                           bemerkung VARCHAR(250),
+                           sterne ENUM('sehr gut','gut','schlecht','sehr schlecht'),
+                           bewertungszeitpunkt DATETIME,
+                           hervorgehoben BOOLEAN DEFAULT FALSE,
+                           CONSTRAINT fkey_gericht FOREIGN KEY (gericht_id) REFERENCES gericht(id),
+                           CONSTRAINT fkey_benutzer FOREIGN KEY (benutzer_id) REFERENCES benutzer(id)
+);

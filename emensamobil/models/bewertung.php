@@ -101,3 +101,9 @@ function db_show_hervorgehoben() {
 
 }
 
+function db_is_user_admin() {
+    $link = connectdb();
+
+
+}
+
